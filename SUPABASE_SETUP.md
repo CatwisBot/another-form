@@ -13,6 +13,7 @@ CREATE TABLE form_submissions (
   sector TEXT NOT NULL,
   department TEXT NOT NULL,
   division TEXT NOT NULL,
+  program_studi TEXT NOT NULL,
   instagram TEXT NOT NULL,
   birth_place TEXT NOT NULL,
   birth_date DATE NOT NULL,
@@ -62,6 +63,7 @@ Form akan menyimpan data berikut:
 - **sector**: Sektor (FNS, Event, General)
 - **department**: Departemen (Finance, Secretariat, dll)
 - **division**: Divisi/Posisi
+- **program_studi**: Program Studi (Ilmu Politik, Hukum, Informatika, dll)
 - **instagram**: Username Instagram
 - **birth_place**: Tempat lahir
 - **birth_date**: Tanggal lahir
