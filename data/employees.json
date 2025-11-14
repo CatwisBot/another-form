@@ -1,0 +1,1682 @@
+[
+  {
+    "id": "1",
+    "name": "Muhammad Akmal Baskoro",
+    "full_name": "Muhammad Akmal Baskoro",
+    "sector": "FNS",
+    "department": "Finance",
+    "division": "Assistant Project Manager"
+  },
+  {
+    "id": "2",
+    "name": "Dhimas Setyo Nugroho",
+    "full_name": "Dhimas Setyo Nugroho",
+    "sector": "FNS",
+    "department": "Finance",
+    "division": "Supervisor"
+  },
+  {
+    "id": "3",
+    "name": "Syafa Aisha Putri",
+    "full_name": "Syafa Aisha Putri",
+    "sector": "FNS",
+    "department": "Finance",
+    "division": "Cash Bookkeeping"
+  },
+  {
+    "id": "4",
+    "name": "Ahmad Zaky",
+    "full_name": "Ahmad Zaky",
+    "sector": "FNS",
+    "department": "Finance",
+    "division": "Cash Bookkeeping"
+  },
+  {
+    "id": "5",
+    "name": "Bunga Adella",
+    "full_name": "Bunga Adella",
+    "sector": "FNS",
+    "department": "Finance",
+    "division": "Field Treasurer & Administration"
+  },
+  {
+    "id": "6",
+    "name": "Aliya Putri",
+    "full_name": "Aliya Putri",
+    "sector": "FNS",
+    "department": "Finance",
+    "division": "Field Treasurer & Administration"
+  },
+  {
+    "id": "7",
+    "name": "Bunga Citra",
+    "full_name": "Bunga Citra",
+    "sector": "FNS",
+    "department": "Finance",
+    "division": "Field Treasurer & Administration"
+  },
+  {
+    "id": "8",
+    "name": "Shaula Chaerunnisa",
+    "full_name": "Shaula Chaerunnisa",
+    "sector": "FNS",
+    "department": "Finance",
+    "division": "Field Treasurer & Administration"
+  },
+  {
+    "id": "9",
+    "name": "Dhenis Auliya Putri",
+    "full_name": "Dhenis Auliya Putri",
+    "sector": "FNS",
+    "department": "Finance",
+    "division": "Receipt and Note"
+  },
+  {
+    "id": "10",
+    "name": "Rohma Zeva Aurellia Taufani",
+    "full_name": "Rohma Zeva Aurellia Taufani",
+    "sector": "FNS",
+    "department": "Finance",
+    "division": "Receipt and Note"
+  },
+  {
+    "id": "11",
+    "name": "Wafa Ma'alim Fithoriq",
+    "full_name": "Wafa Ma'alim Fithoriq",
+    "sector": "FNS",
+    "department": "Secretariat",
+    "division": "Assistant Project Manager"
+  },
+  {
+    "id": "12",
+    "name": "Syafira Ramadanty",
+    "full_name": "Syafira Ramadanty",
+    "sector": "FNS",
+    "department": "Secretariat",
+    "division": "Finance Officer"
+  },
+  {
+    "id": "13",
+    "name": "Nurul Rahmawati",
+    "full_name": "Nurul Rahmawati",
+    "sector": "FNS",
+    "department": "Secretariat",
+    "division": "Supervisor"
+  },
+  {
+    "id": "14",
+    "name": "Dwi Luvita Sari",
+    "full_name": "Dwi Luvita Sari",
+    "sector": "FNS",
+    "department": "Secretariat",
+    "division": "Correspondence Administration"
+  },
+  {
+    "id": "15",
+    "name": "Chusnul Nur Rahmahdhianti",
+    "full_name": "Chusnul Nur Rahmahdhianti",
+    "sector": "FNS",
+    "department": "Secretariat",
+    "division": "Correspondence Administration"
+  },
+  {
+    "id": "16",
+    "name": "Zahrah Nura Eryunanza",
+    "full_name": "Zahrah Nura Eryunanza",
+    "sector": "FNS",
+    "department": "Secretariat",
+    "division": "Correspondence Administration"
+  },
+  {
+    "id": "17",
+    "name": "Zahwa Nabila Shaqi",
+    "full_name": "Zahwa Nabila Shaqi",
+    "sector": "FNS",
+    "department": "Secretariat",
+    "division": "Correspondence Administration"
+  },
+  {
+    "id": "18",
+    "name": "Shefiana Dhifta Yudha Octavia",
+    "full_name": "Shefiana Dhifta Yudha Octavia",
+    "sector": "FNS",
+    "department": "Secretariat",
+    "division": "General Administration"
+  },
+  {
+    "id": "19",
+    "name": "Khairunisa Salsabila Putri",
+    "full_name": "Khairunisa Salsabila Putri",
+    "sector": "FNS",
+    "department": "Secretariat",
+    "division": "General Administration"
+  },
+  {
+    "id": "20",
+    "name": "Suci Novia Triani",
+    "full_name": "Suci Novia Triani",
+    "sector": "FNS",
+    "department": "Secretariat",
+    "division": "Event Admininstration"
+  },
+  {
+    "id": "21",
+    "name": "Sabha Zidna Annabila",
+    "full_name": "Sabha Zidna Annabila",
+    "sector": "FNS",
+    "department": "Secretariat",
+    "division": "Event Admininstration"
+  },
+  {
+    "id": "22",
+    "name": "Muhammad Bisyr",
+    "full_name": "Muhammad Bisyr",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Assistant Project Manager"
+  },
+  {
+    "id": "23",
+    "name": "Sahfina Winata",
+    "full_name": "Sahfina Winata",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Supervisor"
+  },
+  {
+    "id": "24",
+    "name": "Mayesha Azzahra",
+    "full_name": "Mayesha Azzahra",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Secretary & Finance Officer"
+  },
+  {
+    "id": "25",
+    "name": "Nayla Rahma Putri",
+    "full_name": "Nayla Rahma Putri",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Division of Pers"
+  },
+  {
+    "id": "26",
+    "name": "Aiska Ramadya",
+    "full_name": "Aiska Ramadya",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Division of Pers"
+  },
+  {
+    "id": "27",
+    "name": "Rafif Abyan Hidayat",
+    "full_name": "Rafif Abyan Hidayat",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Division of Pers"
+  },
+  {
+    "id": "28",
+    "name": "Tisya Salsabrina",
+    "full_name": "Tisya Salsabrina",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Division of Content Planner"
+  },
+  {
+    "id": "29",
+    "name": "Restu Bumi Anggraini",
+    "full_name": "Restu Bumi Anggraini",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Division of Content Planner"
+  },
+  {
+    "id": "30",
+    "name": "Viola Febrianti",
+    "full_name": "Viola Febrianti",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Division of Content Creator"
+  },
+  {
+    "id": "31",
+    "name": "Muhammad Delvyan Ramdhan Pratama",
+    "full_name": "Muhammad Delvyan Ramdhan Pratama",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Division of Content Creator"
+  },
+  {
+    "id": "32",
+    "name": "Kayla Melinda Nggule",
+    "full_name": "Kayla Melinda Nggule",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Division of Content Creator"
+  },
+  {
+    "id": "33",
+    "name": "Nayla Ayu Shahriza",
+    "full_name": "Nayla Ayu Shahriza",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Division of Content Creator"
+  },
+  {
+    "id": "34",
+    "name": "Azzahra Dara Febrianti",
+    "full_name": "Azzahra Dara Febrianti",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Division of Graphic Design"
+  },
+  {
+    "id": "35",
+    "name": "Nadia Ramadhani",
+    "full_name": "Nadia Ramadhani",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Division of Graphic Design"
+  },
+  {
+    "id": "36",
+    "name": "Siti Marsya Aulia Saifullah",
+    "full_name": "Siti Marsya Aulia Saifullah",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Division of Graphic Design"
+  },
+  {
+    "id": "37",
+    "name": "Najwa Khailillah Putri",
+    "full_name": "Najwa Khailillah Putri",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Division of Graphic Design"
+  },
+  {
+    "id": "38",
+    "name": "Rafidamara Putra Anggara",
+    "full_name": "Rafidamara Putra Anggara",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "PIC of Documentary Division"
+  },
+  {
+    "id": "39",
+    "name": "Yogi Finanda",
+    "full_name": "Yogi Finanda",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Division of Documentary"
+  },
+  {
+    "id": "40",
+    "name": "Hanifah Azzahra",
+    "full_name": "Hanifah Azzahra",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Division of Documentary"
+  },
+  {
+    "id": "41",
+    "name": "Nabiilah Septiana",
+    "full_name": "Nabiilah Septiana",
+    "sector": "FNS",
+    "department": "Advertising",
+    "division": "Division of Documentary"
+  },
+  {
+    "id": "42",
+    "name": "Kyla Nazwara Sofyan",
+    "full_name": "Kyla Nazwara Sofyan",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Assistant Project Manager"
+  },
+  {
+    "id": "43",
+    "name": "Leysa Regita Parhusip",
+    "full_name": "Leysa Regita Parhusip",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Supervisor"
+  },
+  {
+    "id": "44",
+    "name": "Triandi Muhammad Hafiz",
+    "full_name": "Triandi Muhammad Hafiz",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Secretary"
+  },
+  {
+    "id": "45",
+    "name": "Citra Safara",
+    "full_name": "Citra Safara",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Finance Officer"
+  },
+  {
+    "id": "46",
+    "name": "Rivan Wahyu Septian",
+    "full_name": "Rivan Wahyu Septian",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Delegation Donator"
+  },
+  {
+    "id": "47",
+    "name": "Salsabila Safitri",
+    "full_name": "Salsabila Safitri",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Delegation Sponsor"
+  },
+  {
+    "id": "48",
+    "name": "Hisyam Farindra",
+    "full_name": "Hisyam Farindra",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Delegation Sponsor"
+  },
+  {
+    "id": "49",
+    "name": "Najwa Chaela Khosiatillah",
+    "full_name": "Najwa Chaela Khosiatillah",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Delegation Sponsor"
+  },
+  {
+    "id": "50",
+    "name": "Muhammad Fakhruddien",
+    "full_name": "Muhammad Fakhruddien",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Bazaar"
+  },
+  {
+    "id": "51",
+    "name": "Ahmad Khairul Ilham",
+    "full_name": "Ahmad Khairul Ilham",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Bazaar"
+  },
+  {
+    "id": "52",
+    "name": "Komang Ratih Melani Putri",
+    "full_name": "Komang Ratih Melani Putri",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Bazaar"
+  },
+  {
+    "id": "53",
+    "name": "Afira Tria Sahara",
+    "full_name": "Afira Tria Sahara",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Bazaar"
+  },
+  {
+    "id": "54",
+    "name": "Az Zahra Nabila Pratiwi",
+    "full_name": "Az Zahra Nabila Pratiwi",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Bazaar"
+  },
+  {
+    "id": "55",
+    "name": "Ahmad Yazid Sholeh",
+    "full_name": "Ahmad Yazid Sholeh",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Media Partner"
+  },
+  {
+    "id": "56",
+    "name": "Ihda Annisa",
+    "full_name": "Ihda Annisa",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Media Partner"
+  },
+  {
+    "id": "57",
+    "name": "Fathya Azahra",
+    "full_name": "Fathya Azahra",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Marketing & Brand"
+  },
+  {
+    "id": "58",
+    "name": "Rafli Faalih Erianto",
+    "full_name": "Rafli Faalih Erianto",
+    "sector": "FNS",
+    "department": "Partnership",
+    "division": "Marketing & Brand"
+  },
+  {
+    "id": "59",
+    "name": "Leila Alysia Syafiiqoh",
+    "full_name": "Leila Alysia Syafiiqoh",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Assistant Project Manager"
+  },
+  {
+    "id": "60",
+    "name": "Asya Khairunnisa",
+    "full_name": "Asya Khairunnisa",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Supervisor"
+  },
+  {
+    "id": "61",
+    "name": "Muhammad Kahfi Rasyad",
+    "full_name": "Muhammad Kahfi Rasyad",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Coordinator of EDC"
+  },
+  {
+    "id": "62",
+    "name": "Alda Rizka Nurhaliza",
+    "full_name": "Alda Rizka Nurhaliza",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Coordinator of KDBI"
+  },
+  {
+    "id": "63",
+    "name": "Putri Rahmi Lestari",
+    "full_name": "Putri Rahmi Lestari",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Finance Officer"
+  },
+  {
+    "id": "64",
+    "name": "Mourennisa Aulia",
+    "full_name": "Mourennisa Aulia",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "PIC of Administration Division"
+  },
+  {
+    "id": "65",
+    "name": "Nadya Dwi Meidiana",
+    "full_name": "Nadya Dwi Meidiana",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Administration Division"
+  },
+  {
+    "id": "66",
+    "name": "Khayla Namanda Putri",
+    "full_name": "Khayla Namanda Putri",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Administration Division"
+  },
+  {
+    "id": "67",
+    "name": "Khairizza Amaya Shaina Kustiwa",
+    "full_name": "Khairizza Amaya Shaina Kustiwa",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "PIC of Event Division"
+  },
+  {
+    "id": "68",
+    "name": "Akmal Farid",
+    "full_name": "Akmal Farid",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Event Division"
+  },
+  {
+    "id": "69",
+    "name": "Aulia Salma Fahira",
+    "full_name": "Aulia Salma Fahira",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Event Division"
+  },
+  {
+    "id": "70",
+    "name": "Novia Fitri Ramadhani",
+    "full_name": "Novia Fitri Ramadhani",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Event Division"
+  },
+  {
+    "id": "71",
+    "name": "Sawalia Putri Fadila",
+    "full_name": "Sawalia Putri Fadila",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Event Division"
+  },
+  {
+    "id": "72",
+    "name": "Siti Fasya Nur Fadhilah",
+    "full_name": "Siti Fasya Nur Fadhilah",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Event Division"
+  },
+  {
+    "id": "73",
+    "name": "Febri Sadewi Pujanti",
+    "full_name": "Febri Sadewi Pujanti",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Event Division"
+  },
+  {
+    "id": "74",
+    "name": "Jamine Amalia",
+    "full_name": "Jamine Amalia",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "PIC of CAP Division"
+  },
+  {
+    "id": "75",
+    "name": "Diva Nurania Keyla Firdaus",
+    "full_name": "Diva Nurania Keyla Firdaus",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "CAP KDBI"
+  },
+  {
+    "id": "76",
+    "name": "Nazwa Anindita Putri",
+    "full_name": "Nazwa Anindita Putri",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "CAP EDC"
+  },
+  {
+    "id": "77",
+    "name": "Muhammad Arya Kusuma",
+    "full_name": "Muhammad Arya Kusuma",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Tabulator KDBI"
+  },
+  {
+    "id": "78",
+    "name": "Tania Cesilia Putri",
+    "full_name": "Tania Cesilia Putri",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Tabulator EDC"
+  },
+  {
+    "id": "79",
+    "name": "Muhammad Zendi Alfarizi",
+    "full_name": "Muhammad Zendi Alfarizi",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Registration EDC"
+  },
+  {
+    "id": "80",
+    "name": "Chaesya Firmanda Firdaus",
+    "full_name": "Chaesya Firmanda Firdaus",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Registration KDBI"
+  },
+  {
+    "id": "81",
+    "name": "Almelia Restika",
+    "full_name": "Almelia Restika",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Ethics Code KDBI"
+  },
+  {
+    "id": "82",
+    "name": "Sandrina Maharini",
+    "full_name": "Sandrina Maharini",
+    "sector": "Event",
+    "department": "Debate",
+    "division": "Ethics Code EDC"
+  },
+  {
+    "id": "83",
+    "name": "Chairunnisa Salsabila",
+    "full_name": "Chairunnisa Salsabila",
+    "sector": "Event",
+    "department": "SPC",
+    "division": "Assistant Project Manager"
+  },
+  {
+    "id": "84",
+    "name": "Nur Aisyah",
+    "full_name": "Nur Aisyah",
+    "sector": "Event",
+    "department": "SPC",
+    "division": "Administration & Finance Officer"
+  },
+  {
+    "id": "85",
+    "name": "Muhammad Hafids",
+    "full_name": "Muhammad Hafids",
+    "sector": "Event",
+    "department": "SPC",
+    "division": "Coordinator"
+  },
+  {
+    "id": "86",
+    "name": "Muhammad Azriel Alghifari",
+    "full_name": "Muhammad Azriel Alghifari",
+    "sector": "Event",
+    "department": "SPC",
+    "division": "Supervisor"
+  },
+  {
+    "id": "87",
+    "name": "Alvintia Asri Mariskandari",
+    "full_name": "Alvintia Asri Mariskandari",
+    "sector": "Event",
+    "department": "SPC",
+    "division": "Ethics Code"
+  },
+  {
+    "id": "88",
+    "name": "Arya Adi Ramadansyah",
+    "full_name": "Arya Adi Ramadansyah",
+    "sector": "Event",
+    "department": "SPC",
+    "division": "Event"
+  },
+  {
+    "id": "89",
+    "name": "Faras Aurora Dwi Nuary",
+    "full_name": "Faras Aurora Dwi Nuary",
+    "sector": "Event",
+    "department": "SPC",
+    "division": "CAP"
+  },
+  {
+    "id": "90",
+    "name": "Farhan Rasendrya Putra Isnanto",
+    "full_name": "Farhan Rasendrya Putra Isnanto",
+    "sector": "Event",
+    "department": "SPC",
+    "division": "Tabulator"
+  },
+  {
+    "id": "91",
+    "name": "Hanifa Putri Oktaviani",
+    "full_name": "Hanifa Putri Oktaviani",
+    "sector": "Event",
+    "department": "SPC",
+    "division": "Administration & Finance Officer"
+  },
+  {
+    "id": "92",
+    "name": "Kesya Anggun Apriliana",
+    "full_name": "Kesya Anggun Apriliana",
+    "sector": "Event",
+    "department": "SPC",
+    "division": "Event"
+  },
+  {
+    "id": "93",
+    "name": "Maulana Ishak Faujan",
+    "full_name": "Maulana Ishak Faujan",
+    "sector": "Event",
+    "department": "SPC",
+    "division": "CAP"
+  },
+  {
+    "id": "94",
+    "name": "Nazwa Azdania",
+    "full_name": "Nazwa Azdania",
+    "sector": "Event",
+    "department": "SPC",
+    "division": "Registration"
+  },
+  {
+    "id": "95",
+    "name": "Reinata Natalia Embu",
+    "full_name": "Reinata Natalia Embu",
+    "sector": "Event",
+    "department": "SPC",
+    "division": "Event"
+  },
+  {
+    "id": "96",
+    "name": "Selfia Ningrum",
+    "full_name": "Selfia Ningrum",
+    "sector": "Event",
+    "department": "SPC",
+    "division": "Registration"
+  },
+  {
+    "id": "97",
+    "name": "Syiifa Khairani",
+    "full_name": "Syiifa Khairani",
+    "sector": "Event",
+    "department": "SPC",
+    "division": "Event"
+  },
+  {
+    "id": "98",
+    "name": "Eky Wijayanto",
+    "full_name": "Eky Wijayanto",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Assistant Project Manager"
+  },
+  {
+    "id": "99",
+    "name": "Firda Chaerunnisa",
+    "full_name": "Firda Chaerunnisa",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Supervisor"
+  },
+  {
+    "id": "100",
+    "name": "Malika Ma'asya Putri Hermalia",
+    "full_name": "Malika Ma'asya Putri Hermalia",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Coordinator Short Video Compettion"
+  },
+  {
+    "id": "101",
+    "name": "Muhammad Daffa",
+    "full_name": "Muhammad Daffa",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Coordinator Infographic Competition"
+  },
+  {
+    "id": "102",
+    "name": "Akelens Pangestu",
+    "full_name": "Akelens Pangestu",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Division of Event"
+  },
+  {
+    "id": "103",
+    "name": "Anisa Nada Noviriansyah",
+    "full_name": "Anisa Nada Noviriansyah",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Division of Registration"
+  },
+  {
+    "id": "104",
+    "name": "Arrum Kulsuma Wardhani",
+    "full_name": "Arrum Kulsuma Wardhani",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Division of Event"
+  },
+  {
+    "id": "105",
+    "name": "Arrum Tiara Salma",
+    "full_name": "Arrum Tiara Salma",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Division of Administration"
+  },
+  {
+    "id": "106",
+    "name": "Auryna Mahsa Syahrani",
+    "full_name": "Auryna Mahsa Syahrani",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Division of Event"
+  },
+  {
+    "id": "107",
+    "name": "Fazhri Septian Ardiansyah",
+    "full_name": "Fazhri Septian Ardiansyah",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Division of Ethics Code"
+  },
+  {
+    "id": "108",
+    "name": "Fiesda Sekar Prastica",
+    "full_name": "Fiesda Sekar Prastica",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Tabulator"
+  },
+  {
+    "id": "109",
+    "name": "Habibi Zamzami",
+    "full_name": "Habibi Zamzami",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Division of CAP"
+  },
+  {
+    "id": "110",
+    "name": "Maheswari Nabilah Fasya",
+    "full_name": "Maheswari Nabilah Fasya",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Division of Event"
+  },
+  {
+    "id": "111",
+    "name": "Rian Nurfadli",
+    "full_name": "Rian Nurfadli",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Division of Event"
+  },
+  {
+    "id": "112",
+    "name": "Riani Nurfadillah",
+    "full_name": "Riani Nurfadillah",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Division of Administration"
+  },
+  {
+    "id": "113",
+    "name": "Siti Nurlaila",
+    "full_name": "Siti Nurlaila",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Division of CAP"
+  },
+  {
+    "id": "114",
+    "name": "Sonya Nayla Azzahra",
+    "full_name": "Sonya Nayla Azzahra",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Division of Registration"
+  },
+  {
+    "id": "115",
+    "name": "Yohana Sonya Budiman",
+    "full_name": "Yohana Sonya Budiman",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Finance Officer"
+  },
+  {
+    "id": "116",
+    "name": "Desya Aulia Putri",
+    "full_name": "Desya Aulia Putri",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Division of Ethics Code"
+  },
+  {
+    "id": "117",
+    "name": "Fatimah Aulia Rahma",
+    "full_name": "Fatimah Aulia Rahma",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Division of Tabulator"
+  },
+  {
+    "id": "118",
+    "name": "Nur Varissa Camelia",
+    "full_name": "Nur Varissa Camelia",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Division of Event"
+  },
+  {
+    "id": "119",
+    "name": "Fatma Indriyani",
+    "full_name": "Fatma Indriyani",
+    "sector": "Event",
+    "department": "DCC",
+    "division": "Division of CAP"
+  },
+  {
+    "id": "120",
+    "name": "Vanez Meida Olivia Putri",
+    "full_name": "Vanez Meida Olivia Putri",
+    "sector": "Event",
+    "department": "Entertainment",
+    "division": "Assistant Project Manager"
+  },
+  {
+    "id": "121",
+    "name": "Amanda Candra Prastika",
+    "full_name": "Amanda Candra Prastika",
+    "sector": "Event",
+    "department": "Entertainment",
+    "division": "Supervisor"
+  },
+  {
+    "id": "122",
+    "name": "Aurellya Zahwa Maulani",
+    "full_name": "Aurellya Zahwa Maulani",
+    "sector": "Event",
+    "department": "Entertainment",
+    "division": "Performance"
+  },
+  {
+    "id": "123",
+    "name": "Az-Zahra Syafira",
+    "full_name": "Az-Zahra Syafira",
+    "sector": "Event",
+    "department": "Entertainment",
+    "division": "Mc and Moderator"
+  },
+  {
+    "id": "124",
+    "name": "Glory Maranatha Christiantoro",
+    "full_name": "Glory Maranatha Christiantoro",
+    "sector": "Event",
+    "department": "Entertainment",
+    "division": "Mc and Moderator"
+  },
+  {
+    "id": "125",
+    "name": "Helwa Alby Maliha",
+    "full_name": "Helwa Alby Maliha",
+    "sector": "Event",
+    "department": "Entertainment",
+    "division": "Performance"
+  },
+  {
+    "id": "126",
+    "name": "Jihan An'umillah Adzhani",
+    "full_name": "Jihan An'umillah Adzhani",
+    "sector": "Event",
+    "department": "Entertainment",
+    "division": "Administration"
+  },
+  {
+    "id": "127",
+    "name": "Kanya Alyna",
+    "full_name": "Kanya Alyna",
+    "sector": "Event",
+    "department": "Entertainment",
+    "division": "Performance"
+  },
+  {
+    "id": "128",
+    "name": "Nurul Cahya",
+    "full_name": "Nurul Cahya",
+    "sector": "Event",
+    "department": "Entertainment",
+    "division": "Finance Officer"
+  },
+  {
+    "id": "129",
+    "name": "Irene Efelin Najoan",
+    "full_name": "Irene Efelin Najoan",
+    "sector": "Event",
+    "department": "Entertainment",
+    "division": "Background Visual Effect"
+  },
+  {
+    "id": "130",
+    "name": "Nasya Rizka Saputri",
+    "full_name": "Nasya Rizka Saputri",
+    "sector": "General",
+    "department": "Public Relation",
+    "division": "Assistant Project Manager"
+  },
+  {
+    "id": "131",
+    "name": "Nazhif Alhuwaidie",
+    "full_name": "Nazhif Alhuwaidie",
+    "sector": "General",
+    "department": "Public Relation",
+    "division": "Supervisor"
+  },
+  {
+    "id": "132",
+    "name": "Cahyani Yulia Rahma",
+    "full_name": "Cahyani Yulia Rahma",
+    "sector": "General",
+    "department": "Public Relation",
+    "division": "Secretary & Finance Officer"
+  },
+  {
+    "id": "133",
+    "name": "Annisa Salsabilatul Mashumah",
+    "full_name": "Annisa Salsabilatul Mashumah",
+    "sector": "General",
+    "department": "Public Relation",
+    "division": "Event Division of Debtate Competition (KDBI)"
+  },
+  {
+    "id": "134",
+    "name": "Syifa Aulia Fairuza",
+    "full_name": "Syifa Aulia Fairuza",
+    "sector": "General",
+    "department": "Public Relation",
+    "division": "Event Division of Debtate Competition (KDBI)"
+  },
+  {
+    "id": "135",
+    "name": "Rangga Ramdhana",
+    "full_name": "Rangga Ramdhana",
+    "sector": "General",
+    "department": "Public Relation",
+    "division": "Event Division of Debtate Competition (EDC)"
+  },
+  {
+    "id": "136",
+    "name": "Karini Putri Surya",
+    "full_name": "Karini Putri Surya",
+    "sector": "General",
+    "department": "Public Relation",
+    "division": "Event Division of Debtate Competition (EDC)"
+  },
+  {
+    "id": "137",
+    "name": "Jahra Atiar Husaeni",
+    "full_name": "Jahra Atiar Husaeni",
+    "sector": "General",
+    "department": "Public Relation",
+    "division": "Event Division of Scientific Paper Competition (SPC)"
+  },
+  {
+    "id": "138",
+    "name": "Kasih Eigift Sinaga",
+    "full_name": "Kasih Eigift Sinaga",
+    "sector": "General",
+    "department": "Public Relation",
+    "division": "Event Division of Scientific Paper Competition (SPC)"
+  },
+  {
+    "id": "139",
+    "name": "Hemalia Putri",
+    "full_name": "Hemalia Putri",
+    "sector": "General",
+    "department": "Public Relation",
+    "division": "Event Division of Digital COntent Competition (DCC)"
+  },
+  {
+    "id": "140",
+    "name": "Muhammad Zaid Zidan",
+    "full_name": "Muhammad Zaid Zidan",
+    "sector": "General",
+    "department": "Public Relation",
+    "division": "Event Division of Digital COntent Competition (DCC)"
+  },
+  {
+    "id": "141",
+    "name": "Marsaa Fauziyyah",
+    "full_name": "Marsaa Fauziyyah",
+    "sector": "General",
+    "department": "Public Relation",
+    "division": "Civitas"
+  },
+  {
+    "id": "142",
+    "name": "Malik Hardiansyah",
+    "full_name": "Malik Hardiansyah",
+    "sector": "General",
+    "department": "Public Relation",
+    "division": "Field Coordinator"
+  },
+  {
+    "id": "143",
+    "name": "Dimas",
+    "full_name": "Dimas",
+    "sector": "General",
+    "department": "IT",
+    "division": "Assistant Project Manager"
+  },
+  {
+    "id": "144",
+    "name": "Najwa Aura Hastin",
+    "full_name": "Najwa Aura Hastin",
+    "sector": "General",
+    "department": "IT",
+    "division": "Techlead"
+  },
+  {
+    "id": "145",
+    "name": "Nizma Alya",
+    "full_name": "Nizma Alya",
+    "sector": "General",
+    "department": "IT",
+    "division": "Secretarial Affairs & Finance Officer"
+  },
+  {
+    "id": "146",
+    "name": "Galang Rispa'i",
+    "full_name": "Galang Rispa'i",
+    "sector": "General",
+    "department": "IT",
+    "division": "UI/UX Design"
+  },
+  {
+    "id": "147",
+    "name": "Muhammad Zidan",
+    "full_name": "Muhammad Zidan",
+    "sector": "General",
+    "department": "IT",
+    "division": "UI/UX Design"
+  },
+  {
+    "id": "148",
+    "name": "Raden Whisnu Arya Nugraha",
+    "full_name": "Raden Whisnu Arya Nugraha",
+    "sector": "General",
+    "department": "IT",
+    "division": "Front-end Developer"
+  },
+  {
+    "id": "149",
+    "name": "Nur Arohman",
+    "full_name": "Nur Arohman",
+    "sector": "General",
+    "department": "IT",
+    "division": "Front-end Developer"
+  },
+  {
+    "id": "150",
+    "name": "Muhammad Akbar Hadi Pratama",
+    "full_name": "Muhammad Akbar Hadi Pratama",
+    "sector": "General",
+    "department": "IT",
+    "division": "Back-end Developer"
+  },
+  {
+    "id": "151",
+    "name": "Ilham Ramadhan",
+    "full_name": "Ilham Ramadhan",
+    "sector": "General",
+    "department": "IT",
+    "division": "Back-end Developer"
+  },
+  {
+    "id": "152",
+    "name": "Najmia",
+    "full_name": "Najmia",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Assistant Project Manager"
+  },
+  {
+    "id": "153",
+    "name": "Fatika Dwi Maiyeza",
+    "full_name": "Fatika Dwi Maiyeza",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Supervisor"
+  },
+  {
+    "id": "154",
+    "name": "Muhammad Hammam Gifary",
+    "full_name": "Muhammad Hammam Gifary",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Coordinator"
+  },
+  {
+    "id": "155",
+    "name": "Linda Isnaeni",
+    "full_name": "Linda Isnaeni",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Secretary"
+  },
+  {
+    "id": "156",
+    "name": "Davina Fadhillah Setiawan",
+    "full_name": "Davina Fadhillah Setiawan",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Secretary"
+  },
+  {
+    "id": "157",
+    "name": "Anggita Intan Anggaluh",
+    "full_name": "Anggita Intan Anggaluh",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Finance Officer"
+  },
+  {
+    "id": "158",
+    "name": "Alya Giska Alivia",
+    "full_name": "Alya Giska Alivia",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Inventory Officer"
+  },
+  {
+    "id": "159",
+    "name": "Yafi Arya Putra",
+    "full_name": "Yafi Arya Putra",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Division of Infrastructure"
+  },
+  {
+    "id": "160",
+    "name": "Mohammad Fahreza Situmorang",
+    "full_name": "Mohammad Fahreza Situmorang",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Division of Infrastructure"
+  },
+  {
+    "id": "161",
+    "name": "Naufal Falah",
+    "full_name": "Naufal Falah",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Division of Infrastructure"
+  },
+  {
+    "id": "162",
+    "name": "Muhammad Verdad",
+    "full_name": "Muhammad Verdad",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Division of Infrastructure"
+  },
+  {
+    "id": "163",
+    "name": "Muhammad Ridho Jiyad",
+    "full_name": "Muhammad Ridho Jiyad",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Division of Infrastructure"
+  },
+  {
+    "id": "164",
+    "name": "Angga Wijaya",
+    "full_name": "Angga Wijaya",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Division of Facility"
+  },
+  {
+    "id": "165",
+    "name": "Afifah Aulia Paramitha Manurung",
+    "full_name": "Afifah Aulia Paramitha Manurung",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Division of Facility"
+  },
+  {
+    "id": "166",
+    "name": "Aulia Panggabean",
+    "full_name": "Aulia Panggabean",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Division of Facility"
+  },
+  {
+    "id": "167",
+    "name": "Farhan Rizky Cahyadi",
+    "full_name": "Farhan Rizky Cahyadi",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Division of Facility"
+  },
+  {
+    "id": "168",
+    "name": "Keysha Andani",
+    "full_name": "Keysha Andani",
+    "sector": "General",
+    "department": "FnB",
+    "division": "Assistant Project Manager"
+  },
+  {
+    "id": "169",
+    "name": "Aprilia Candrawati",
+    "full_name": "Aprilia Candrawati",
+    "sector": "General",
+    "department": "FnB",
+    "division": "Secretary"
+  },
+  {
+    "id": "170",
+    "name": "Selviana Putri",
+    "full_name": "Selviana Putri",
+    "sector": "General",
+    "department": "FnB",
+    "division": "Supervision"
+  },
+  {
+    "id": "171",
+    "name": "Nadilla Amanda Fernando",
+    "full_name": "Nadilla Amanda Fernando",
+    "sector": "General",
+    "department": "FnB",
+    "division": "Committee"
+  },
+  {
+    "id": "172",
+    "name": "Adni Gita Suryani",
+    "full_name": "Adni Gita Suryani",
+    "sector": "General",
+    "department": "FnB",
+    "division": "Participants"
+  },
+  {
+    "id": "173",
+    "name": "Alya Rahmawati",
+    "full_name": "Alya Rahmawati",
+    "sector": "General",
+    "department": "FnB",
+    "division": "Committee"
+  },
+  {
+    "id": "174",
+    "name": "Ariesta Nur Halimah",
+    "full_name": "Ariesta Nur Halimah",
+    "sector": "General",
+    "department": "FnB",
+    "division": "Committee"
+  },
+  {
+    "id": "175",
+    "name": "Chika Putri Sya'bani",
+    "full_name": "Chika Putri Sya'bani",
+    "sector": "General",
+    "department": "FnB",
+    "division": "Logistics"
+  },
+  {
+    "id": "176",
+    "name": "Diva Ayudhya Januar Rahman",
+    "full_name": "Diva Ayudhya Januar Rahman",
+    "sector": "General",
+    "department": "FnB",
+    "division": "Logistics"
+  },
+  {
+    "id": "177",
+    "name": "Dzikrina Zahra",
+    "full_name": "Dzikrina Zahra",
+    "sector": "General",
+    "department": "FnB",
+    "division": "Finance Officer"
+  },
+  {
+    "id": "178",
+    "name": "Langgeng Muhammad Yurham",
+    "full_name": "Langgeng Muhammad Yurham",
+    "sector": "General",
+    "department": "FnB",
+    "division": "Participants"
+  },
+  {
+    "id": "179",
+    "name": "Muhammad Awallin Khalid",
+    "full_name": "Muhammad Awallin Khalid",
+    "sector": "General",
+    "department": "FnB",
+    "division": "Logistics"
+  },
+  {
+    "id": "180",
+    "name": "Nurul Mayzidah",
+    "full_name": "Nurul Mayzidah",
+    "sector": "General",
+    "department": "FnB",
+    "division": "VIP and Invitation"
+  },
+  {
+    "id": "181",
+    "name": "Prajna Paramita",
+    "full_name": "Prajna Paramita",
+    "sector": "General",
+    "department": "FnB",
+    "division": "VIP and Invitation"
+  },
+  {
+    "id": "182",
+    "name": "Rico Aditya Aldafha",
+    "full_name": "Rico Aditya Aldafha",
+    "sector": "General",
+    "department": "FnB",
+    "division": "Logistics"
+  },
+  {
+    "id": "183",
+    "name": "Wahyu Zaaqi Fadila",
+    "full_name": "Wahyu Zaaqi Fadila",
+    "sector": "General",
+    "department": "FnB",
+    "division": "VIP and Invitation"
+  },
+  {
+    "id": "184",
+    "name": "Muthia Amelia",
+    "full_name": "Muthia Amelia",
+    "sector": "General",
+    "department": "FnB",
+    "division": "Participants"
+  },
+  {
+    "id": "185",
+    "name": "Nayla Luthfia Hayati",
+    "full_name": "Nayla Luthfia Hayati",
+    "sector": "General",
+    "department": "Health",
+    "division": "Assistant Project Manager"
+  },
+  {
+    "id": "186",
+    "name": "Ailsa Shafa Adriyani",
+    "full_name": "Ailsa Shafa Adriyani",
+    "sector": "General",
+    "department": "Health",
+    "division": "Supervision"
+  },
+  {
+    "id": "187",
+    "name": "Anisa Anggraini",
+    "full_name": "Anisa Anggraini",
+    "sector": "General",
+    "department": "Health",
+    "division": "Coordinator"
+  },
+  {
+    "id": "188",
+    "name": "Sakina Paradila Risci",
+    "full_name": "Sakina Paradila Risci",
+    "sector": "General",
+    "department": "Health",
+    "division": "Secretaris and Finance Officer"
+  },
+  {
+    "id": "189",
+    "name": "Abi Mohamad Landung",
+    "full_name": "Abi Mohamad Landung",
+    "sector": "General",
+    "department": "Health",
+    "division": "Controlling"
+  },
+  {
+    "id": "190",
+    "name": "Aisyah Nadin Putri Andiyani",
+    "full_name": "Aisyah Nadin Putri Andiyani",
+    "sector": "General",
+    "department": "Health",
+    "division": "Controlling"
+  },
+  {
+    "id": "191",
+    "name": "Bintang Dama Sutendi",
+    "full_name": "Bintang Dama Sutendi",
+    "sector": "General",
+    "department": "Health",
+    "division": "Controlling"
+  },
+  {
+    "id": "192",
+    "name": "Dafa Annazi",
+    "full_name": "Dafa Annazi",
+    "sector": "General",
+    "department": "Health",
+    "division": "PostTeam"
+  },
+  {
+    "id": "193",
+    "name": "Gita Safitri",
+    "full_name": "Gita Safitri",
+    "sector": "General",
+    "department": "Health",
+    "division": "PostTeam"
+  },
+  {
+    "id": "194",
+    "name": "Ramdhan Rasyid Zidan",
+    "full_name": "Ramdhan Rasyid Zidan",
+    "sector": "General",
+    "department": "Health",
+    "division": "Controlling"
+  },
+  {
+    "id": "195",
+    "name": "Salwa Salsabilla Fitri",
+    "full_name": "Salwa Salsabilla Fitri",
+    "sector": "General",
+    "department": "Health",
+    "division": "Controlling"
+  },
+  {
+    "id": "196",
+    "name": "Suci Ramadhani",
+    "full_name": "Suci Ramadhani",
+    "sector": "General",
+    "department": "Health",
+    "division": "Clinic UNAS"
+  },
+  {
+    "id": "197",
+    "name": "Juandhika Irama",
+    "full_name": "Juandhika Irama",
+    "sector": "General",
+    "department": "Security",
+    "division": "Assistant Project Manager"
+  },
+  {
+    "id": "198",
+    "name": "Muhammad Taufiqulhakim",
+    "full_name": "Muhammad Taufiqulhakim",
+    "sector": "General",
+    "department": "Security",
+    "division": "Supervision"
+  },
+  {
+    "id": "199",
+    "name": "Tasya Sharadin Azzahra",
+    "full_name": "Tasya Sharadin Azzahra",
+    "sector": "General",
+    "department": "Security",
+    "division": "Secretary and Finance Officer"
+  },
+  {
+    "id": "200",
+    "name": "Muhammad Aufa Roiszul Hakim",
+    "full_name": "Muhammad Aufa Roiszul Hakim",
+    "sector": "General",
+    "department": "Security",
+    "division": "Crowd Control & Preparation"
+  },
+  {
+    "id": "201",
+    "name": "Ahmad Irfan Al Faqih",
+    "full_name": "Ahmad Irfan Al Faqih",
+    "sector": "General",
+    "department": "Security",
+    "division": "Patroly Team"
+  },
+  {
+    "id": "202",
+    "name": "Andjani Kinasih Cahyaningtyas",
+    "full_name": "Andjani Kinasih Cahyaningtyas",
+    "sector": "General",
+    "department": "Security",
+    "division": "Patroly Team"
+  },
+  {
+    "id": "203",
+    "name": "Angger Subhan Nugroho",
+    "full_name": "Angger Subhan Nugroho",
+    "sector": "General",
+    "department": "Security",
+    "division": "Patroly Team"
+  },
+  {
+    "id": "204",
+    "name": "Arya Wiratama",
+    "full_name": "Arya Wiratama",
+    "sector": "General",
+    "department": "Security",
+    "division": "Crowd Control & Preparation"
+  },
+  {
+    "id": "205",
+    "name": "Gabas Mohamed Daifalla Yogoub",
+    "full_name": "Gabas Mohamed Daifalla Yogoub",
+    "sector": "General",
+    "department": "Security",
+    "division": "Coordinator"
+  },
+  {
+    "id": "206",
+    "name": "Kansah Novi Calia",
+    "full_name": "Kansah Novi Calia",
+    "sector": "General",
+    "department": "Security",
+    "division": "Crowd Control & Preparation"
+  },
+  {
+    "id": "207",
+    "name": "Muhammad Jufri Ramadhan",
+    "full_name": "Muhammad Jufri Ramadhan",
+    "sector": "General",
+    "department": "Security",
+    "division": "Patroly Team"
+  },
+  {
+    "id": "208",
+    "name": "Muhammad Rizky Dwi Saputro",
+    "full_name": "Muhammad Rizky Dwi Saputro",
+    "sector": "General",
+    "department": "Security",
+    "division": "Crowd Control & Preparation"
+  },
+  {
+    "id": "209",
+    "name": "Putri Dini Sapitri",
+    "full_name": "Putri Dini Sapitri",
+    "sector": "General",
+    "department": "Security",
+    "division": "Crowd Control & Preparation"
+  },
+  {
+    "id": "210",
+    "name": "Zahwa Alifa Rachman",
+    "full_name": "Zahwa Alifa Rachman",
+    "sector": "General",
+    "department": "Security",
+    "division": "Patroly Team"
+  }
+]
