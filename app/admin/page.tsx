@@ -12,6 +12,7 @@ interface FormSubmission {
   sector: string;
   department: string;
   division: string;
+  program_studi: string;
   instagram: string;
   birth_place: string;
   birth_date: string;
@@ -116,6 +117,7 @@ export default function AdminPage() {
         'Sektor': sub.sector,
         'Departemen': sub.department,
         'Divisi': sub.division,
+        'Program Studi': sub.program_studi,
         'Instagram': sub.instagram,
         'Tempat Lahir': sub.birth_place,
         'Tanggal Lahir': sub.birth_date,
@@ -133,6 +135,7 @@ export default function AdminPage() {
         { wch: 10 }, // Sektor
         { wch: 20 }, // Departemen
         { wch: 35 }, // Divisi
+        { wch: 35 }, // Program Studi
         { wch: 20 }, // Instagram
         { wch: 20 }, // Tempat Lahir
         { wch: 15 }, // Tanggal Lahir
