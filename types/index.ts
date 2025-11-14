@@ -18,5 +18,6 @@ export interface FormData {
   birth_place: string;
   birth_date: string;
   quotes: string;
+  program_studi: string;
   photo_url?: string;
 }
