@@ -1,65 +1,278 @@
-import Image from "next/image";
+'use client';
+
+import { useState, useEffect } from 'react';
+import { supabase } from '@/lib/supabase';
+import { Employee, FormData } from '@/types';
+import employeesData from '@/data/employees.json';
 
 export default function Home() {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [employees, setEmployees] = useState<Employee[]>([]);
+  const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const [formData, setFormData] = useState({
+    instagram: '',
+    birth_place: '',
+    birth_date: '',
+    quotes: '',
+  });
+
+  // Search employees from JSON
+  useEffect(() => {
+    if (searchQuery.length < 2) {
+      setEmployees([]);
+      setShowDropdown(false);
+      return;
+    }
+
+    const filtered = employeesData.filter((employee) =>
+      employee.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      employee.full_name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    setEmployees(filtered);
+    setShowDropdown(filtered.length > 0);
+  }, [searchQuery]);
+
+  const handleEmployeeSelect = (employee: Employee) => {
+    setSelectedEmployee(employee);
+    setSearchQuery(employee.name);
+    setShowDropdown(false);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!selectedEmployee) {
+      alert('Silakan pilih karyawan terlebih dahulu');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Insert form data
+      const { error: insertError } = await supabase
+        .from('form_submissions')
+        .insert({
+          employee_id: selectedEmployee.id,
+          employee_name: selectedEmployee.name,
+          full_name: selectedEmployee.full_name,
+          sector: selectedEmployee.sector,
+          department: selectedEmployee.department,
+          division: selectedEmployee.division,
+          instagram: formData.instagram,
+          birth_place: formData.birth_place,
+          birth_date: formData.birth_date,
+          quotes: formData.quotes,
+        });
+
+      if (insertError) throw insertError;
+
+      alert('Form berhasil dikirim!');
+      
+      // Reset form
+      setSelectedEmployee(null);
+      setSearchQuery('');
+      setFormData({
+        instagram: '',
+        birth_place: '',
+        birth_date: '',
+        quotes: '',
+      });
+      
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Terjadi kesalahan saat mengirim form');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <main className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 py-12 px-4">
+      <div className="max-w-2xl mx-auto">
+        <div className="bg-white rounded-2xl shadow-xl p-8">
+          <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
+            Form Data Panitia
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Search Employee */}
+            <div className="relative">
+              <label className="block text-sm font-medium text-indigo-700 mb-2">
+                Cari Nama <span className="text-rose-500">*</span>
+              </label>
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => employees.length > 0 && setShowDropdown(true)}
+                className="w-full px-4 py-3 border-2 border-indigo-200 rounded-xl bg-white focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all placeholder:text-gray-400 text-gray-700"
+                placeholder="Ketik nama untuk mencari..."
+                required
+              />
+              
+              {showDropdown && employees.length > 0 && (
+                <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+                  {employees.map((employee) => (
+                    <div
+                      key={employee.id}
+                      onClick={() => handleEmployeeSelect(employee)}
+                      className="px-4 py-3 hover:bg-indigo-50 cursor-pointer transition border-b border-gray-100 last:border-0"
+                    >
+                      <p className="font-medium text-gray-900">{employee.name}</p>
+                      <p className="text-sm text-gray-600">{employee.full_name}</p>
+                      <p className="text-xs text-gray-500">{employee.department} - {employee.division}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Auto-filled Fields (Read-only) */}
+            {selectedEmployee && (
+              <>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Nama Lengkap */}
+                  <div>
+                    <label className="block text-sm font-medium text-indigo-700 mb-2">
+                      Nama Lengkap
+                    </label>
+                    <input
+                      type="text"
+                      value={selectedEmployee.full_name}
+                      readOnly
+                      className="w-full px-4 py-3 border-2 border-indigo-100 rounded-xl bg-indigo-50 text-indigo-900 cursor-not-allowed"
+                    />
+                  </div>
+
+                  {/* Sektor */}
+                  <div>
+                    <label className="block text-sm font-medium text-indigo-700 mb-2">
+                      Sektor
+                    </label>
+                    <input
+                      type="text"
+                      value={selectedEmployee.sector}
+                      readOnly
+                      className="w-full px-4 py-3 border-2 border-indigo-100 rounded-xl bg-indigo-50 text-indigo-900 cursor-not-allowed"
+                    />
+                  </div>
+
+                  {/* Departemen */}
+                  <div>
+                    <label className="block text-sm font-medium text-indigo-700 mb-2">
+                      Departemen
+                    </label>
+                    <input
+                      type="text"
+                      value={selectedEmployee.department}
+                      readOnly
+                      className="w-full px-4 py-3 border-2 border-indigo-100 rounded-xl bg-indigo-50 text-indigo-900 cursor-not-allowed"
+                    />
+                  </div>
+
+                  {/* Divisi */}
+                  <div>
+                    <label className="block text-sm font-medium text-indigo-700 mb-2">
+                      Divisi
+                    </label>
+                    <input
+                      type="text"
+                      value={selectedEmployee.division}
+                      readOnly
+                      className="w-full px-4 py-3 border-2 border-indigo-100 rounded-xl bg-indigo-50 text-indigo-900 cursor-not-allowed"
+                    />
+                  </div>
+                </div>
+
+                <hr className="border-gray-200" />
+              </>
+            )}
+
+            {/* Instagram */}
+            <div>
+              <label className="block text-sm font-medium text-indigo-700 mb-2">
+                Instagram <span className="text-rose-500">*</span>
+              </label>
+              <div className="flex">
+                <span className="inline-flex items-center px-4 rounded-l-xl border-2 border-r-0 border-indigo-200 bg-indigo-100 text-indigo-700 font-medium">
+                  @
+                </span>
+                <input
+                  type="text"
+                  value={formData.instagram}
+                  onChange={(e) => setFormData({ ...formData, instagram: e.target.value })}
+                  className="flex-1 px-4 py-3 border-2 border-indigo-200 rounded-r-xl bg-white focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all placeholder:text-gray-400 text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50"
+                  placeholder="username"
+                  required
+                  disabled={!selectedEmployee}
+                />
+              </div>
+            </div>
+
+            {/* Tempat Tanggal Lahir */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-indigo-700 mb-2">
+                  Tempat Lahir <span className="text-rose-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={formData.birth_place}
+                  onChange={(e) => setFormData({ ...formData, birth_place: e.target.value })}
+                  className="w-full px-4 py-3 border-2 border-indigo-200 rounded-xl bg-white focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all placeholder:text-gray-400 text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50"
+                  placeholder="Kota tempat lahir"
+                  required
+                  disabled={!selectedEmployee}
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-indigo-700 mb-2">
+                  Tanggal Lahir <span className="text-rose-500">*</span>
+                </label>
+                <input
+                  type="date"
+                  value={formData.birth_date}
+                  onChange={(e) => setFormData({ ...formData, birth_date: e.target.value })}
+                  className="w-full px-4 py-3 border-2 border-indigo-200 rounded-xl bg-white focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50"
+                  required
+                  disabled={!selectedEmployee}
+                />
+              </div>
+            </div>
+
+            {/* Quotes */}
+            <div>
+              <label className="block text-sm font-medium text-indigo-700 mb-2">
+                Quotes <span className="text-rose-500">*</span>
+              </label>
+              <textarea
+                value={formData.quotes}
+                onChange={(e) => setFormData({ ...formData, quotes: e.target.value })}
+                className="w-full px-4 py-3 border-2 border-indigo-200 rounded-xl bg-white focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all resize-none placeholder:text-gray-400 text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50"
+                placeholder="Quotes atau motto hidup Anda..."
+                rows={4}
+                required
+                disabled={!selectedEmployee}
+              />
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={isSubmitting || !selectedEmployee}
+              className="w-full bg-indigo-600 text-white py-4 px-6 rounded-xl font-semibold text-lg hover:bg-indigo-700 hover:shadow-lg focus:ring-4 focus:ring-indigo-300 transition-all disabled:bg-indigo-300 disabled:cursor-not-allowed disabled:shadow-none"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              {isSubmitting ? 'Mengirim...' : 'Kirim Form'}
+            </button>
+          </form>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }
