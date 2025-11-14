@@ -17,7 +17,37 @@ export default function Home() {
     birth_place: '',
     birth_date: '',
     quotes: '',
+    program_studi: '',
   });
+
+  const programStudiList = [
+    'Program Studi Ilmu Politik',
+    'Program Studi Hubungan Internasional',
+    'Program Studi Administrasi Publik',
+    'Program Studi Sosiologi',
+    'Program Studi Ilmu Komunikasi',
+    'Program Studi Hukum',
+    'Program Studi Sastra Inggris',
+    'Program Studi Sastra Indonesia',
+    'Program Studi Sastra Jepang',
+    'Program Studi Bahasa Korea',
+    'Program Studi Manajemen',
+    'Program Studi Akuntansi',
+    'Program Studi Pariwisata',
+    'Program Studi Bisnis Digital',
+    'Program Studi Fisika',
+    'Program Studi Teknik Elektro',
+    'Program Studi Teknik Mesin',
+    'Program Studi Teknik Fisika',
+    'Program Studi Biologi',
+    'Program Studi Agroteknologi',
+    'Program Studi Sistem Informasi',
+    'Program Studi Informatika',
+    'Program Studi Keperawatan',
+    'Program Studi Kebidanan',
+    'Program Studi Pendidikan Profesi Ners',
+    'Program Studi Pendidikan Profesi Bidan',
+  ];
 
   // Search employees from JSON
   useEffect(() => {
@@ -67,6 +97,7 @@ export default function Home() {
           birth_place: formData.birth_place,
           birth_date: formData.birth_date,
           quotes: formData.quotes,
+          program_studi: formData.program_studi,
         });
 
       if (insertError) throw insertError;
@@ -81,6 +112,7 @@ export default function Home() {
         birth_place: '',
         birth_date: '',
         quotes: '',
+        program_studi: '',
       });
       
     } catch (error) {
@@ -192,6 +224,27 @@ export default function Home() {
                 <hr className="border-gray-200" />
               </>
             )}
+
+            {/* Program Studi */}
+            <div>
+              <label className="block text-sm font-medium text-indigo-700 mb-2">
+                Program Studi <span className="text-rose-500">*</span>
+              </label>
+              <select
+                value={formData.program_studi}
+                onChange={(e) => setFormData({ ...formData, program_studi: e.target.value })}
+                className="w-full px-4 py-3 border-2 border-indigo-200 rounded-xl bg-white focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50"
+                required
+                disabled={!selectedEmployee}
+              >
+                <option value="">Pilih Program Studi</option>
+                {programStudiList.map((prodi, index) => (
+                  <option key={index} value={prodi}>
+                    {prodi}
+                  </option>
+                ))}
+              </select>
+            </div>
 
             {/* Instagram */}
             <div>
