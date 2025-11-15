@@ -129,16 +129,16 @@
   },
   {
     "id": "15",
-    "name": "Chusnul Nur Rahmahdhianti",
-    "full_name": "Chusnul Nur Rahmahdhianti",
+    "name": "Chusnul Nur Rahmadhianti",
+    "full_name": "Chusnul Nur Rahmadhianti",
     "sector": "FNS",
     "department": "Secretarial Affairs",
     "division": "Correspondence Administration"
   },
   {
     "id": "16",
-    "name": "Zahrah Nura Eryunanza",
-    "full_name": "Zahrah Nura Eryunanza",
+    "name": "Zahra Nura Eryunanza",
+    "full_name": "Zahra Nura Eryunanza",
     "sector": "FNS",
     "department": "Secretarial Affairs",
     "division": "Correspondence Administration"
@@ -297,16 +297,16 @@
   },
   {
     "id": "37",
-    "name": "Najwa Khailillah Putri",
-    "full_name": "Najwa Khailillah Putri",
+    "name": "Najwa Khaililah Putri",
+    "full_name": "Najwa Khaililah Putri",
     "sector": "FNS",
     "department": "Advertising",
     "division": "Division of Graphic Design"
   },
   {
     "id": "38",
-    "name": "Rafidamara Putra Anggara",
-    "full_name": "Rafidamara Putra Anggara",
+    "name": "Rafi Damara Putra Anggara",
+    "full_name": "Rafi Damara Putra Anggara",
     "sector": "FNS",
     "department": "Advertising",
     "division": "PIC of Documentary Division"
@@ -393,8 +393,8 @@
   },
   {
     "id": "49",
-    "name": "Najwa Chaela Khosiatillah",
-    "full_name": "Najwa Chaela Khosiatillah",
+    "name": "Najwa Chalea Khosiatillah",
+    "full_name": "Najwa Chalea Khosiatillah",
     "sector": "FNS",
     "department": "Partnership",
     "division": "Delegation Sponsor"
@@ -577,8 +577,8 @@
   },
   {
     "id": "73",
-    "name": "Febri Sadewi Pujanti",
-    "full_name": "Febri Sadewi Pujanti",
+    "name": "Febry Sadewi Pujanti",
+    "full_name": "Febry Sadewi Pujanti",
     "sector": "Event",
     "department": "Debate",
     "division": "Event Division"
@@ -633,8 +633,8 @@
   },
   {
     "id": "80",
-    "name": "Chaesya Firmanda Firdaus",
-    "full_name": "Chaesya Firmanda Firdaus",
+    "name": "Chaesya Firnanda Firdaus",
+    "full_name": "Chaesya Firnanda Firdaus",
     "sector": "Event",
     "department": "Debate",
     "division": "Registration KDBI"
@@ -649,8 +649,8 @@
   },
   {
     "id": "82",
-    "name": "Sandrina Maharini",
-    "full_name": "Sandrina Maharini",
+    "name": "Sandrina Maharani",
+    "full_name": "Sandrina Maharani",
     "sector": "Event",
     "department": "Debate",
     "division": "Ethics Code EDC"
@@ -713,8 +713,8 @@
   },
   {
     "id": "90",
-    "name": "Farhan Rasendrya Putra Isnanto",
-    "full_name": "Farhan Rasendrya Putra Isnanto",
+    "name": "Farhan Rasendriya Putra Ismanto",
+    "full_name": "Farhan Rasendriya Putra Ismanto",
     "sector": "Event",
     "department": "SPC",
     "division": "Tabulator"
@@ -769,8 +769,8 @@
   },
   {
     "id": "97",
-    "name": "Syiifa Khairani",
-    "full_name": "Syiifa Khairani",
+    "name": "Syilfa Khairani",
+    "full_name": "Syilfa Khairani",
     "sector": "Event",
     "department": "SPC",
     "division": "Event"
@@ -969,8 +969,8 @@
   },
   {
     "id": "122",
-    "name": "Aurellya Zahwa Maulani",
-    "full_name": "Aurellya Zahwa Maulani",
+    "name": "Aurellya Zahwa Maulina",
+    "full_name": "Aurellya Zahwa Maulina",
     "sector": "Event",
     "department": "Entertainment",
     "division": "Performance"
@@ -1045,7 +1045,7 @@
     "full_name": "Nazhif Alhuwaidie",
     "sector": "Event",
     "department": "Public Relations",
-    "division": "Event Division of Debtate Competition (EDC)"
+    "division": "Event Division of Debate Competition (EDC)"
   },
   {
     "id": "132",
@@ -1061,7 +1061,7 @@
     "full_name": "Annisa Salsabilatul Mashumah",
     "sector": "Event",
     "department": "Public Relations",
-    "division": "Event Division of Debtate Competition (KDBI)"
+    "division": "Event Division of Debate Competition (KDBI)"
   },
   {
     "id": "134",
@@ -1069,7 +1069,7 @@
     "full_name": "Syifa Aulia Fairuza",
     "sector": "Event",
     "department": "Public Relations",
-    "division": "Event Division of Debtate Competition (KDBI)"
+    "division": "Event Division of Debate Competition (KDBI)"
   },
   {
     "id": "136",
@@ -1101,7 +1101,7 @@
     "full_name": "Hemalia Putri",
     "sector": "Event",
     "department": "Public Relations",
-    "division": "Event Division of Digital COntent Competition (DCC)"
+    "division": "Event Division of Digital Content Competition (DCC)"
   },
   {
     "id": "140",
@@ -1109,7 +1109,7 @@
     "full_name": "Muhammad Zaid Zaidan",
     "sector": "Event",
     "department": "Public Relations",
-    "division": "Event Division of Digital COntent Competition (DCC)"
+    "division": "Event Division of Digital Content Competition (DCC)"
   },
   {
     "id": "141",
@@ -1125,7 +1125,7 @@
     "full_name": "Malik Hardiansyah",
     "sector": "General",
     "department": "Public Relations",
-    "division": "Event Division of Debtate Competition (EDC)"
+    "division": "Event Division of Debate Competition (EDC)"
   },
   {
     "id": "143",
