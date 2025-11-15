@@ -1,5 +1,29 @@
 [
   {
+    "id": "PM-1",
+    "name": "Nabila Shafa Sabrina",
+    "full_name": "Nabila Shafa Sabrina, S.Sos",
+    "position": "Project Manager"
+  },
+  {
+    "id": "DPM-1",
+    "name": "Harini Setyowati",
+    "full_name": "Harini Setyowati",
+    "position": "Deputy Manager Finance & Secretarial Affairs"
+  },
+  {
+    "id": "DPM-2",
+    "name": "Nazwa Priyandini Cahyani Putri",
+    "full_name": "Nazwa Priyandini Cahyani Putri",
+    "position": "Deputy Event Manager"
+  },
+  {
+    "id": "DPM-3",
+    "name": "Andhika Pratama",
+    "full_name": "Andhika Pratama",
+    "position": "Deputy Manager General"
+  },
+  {
     "id": "1",
     "name": "Muhammad Akmal Baskoro",
     "full_name": "Muhammad Akmal Baskoro",
@@ -29,7 +53,7 @@
     "full_name": "Ahmad Zaky",
     "sector": "FNS",
     "department": "Finance",
-    "division": "Cash Bookkeeping"
+    "division": "Field Treasurer & Administration"
   },
   {
     "id": "5",
@@ -45,7 +69,7 @@
     "full_name": "Aliya Putri",
     "sector": "FNS",
     "department": "Finance",
-    "division": "Field Treasurer & Administration"
+    "division": "Cash Bookkeeping"
   },
   {
     "id": "7",
@@ -61,7 +85,7 @@
     "full_name": "Shaula Chaerunnisa",
     "sector": "FNS",
     "department": "Finance",
-    "division": "Field Treasurer & Administration"
+    "division": "Receipt and Note"
   },
   {
     "id": "9",
@@ -69,7 +93,7 @@
     "full_name": "Dhenis Auliya Putri",
     "sector": "FNS",
     "department": "Finance",
-    "division": "Receipt and Note"
+    "division": "Field Treasurer & Administration"
   },
   {
     "id": "10",
@@ -84,7 +108,7 @@
     "name": "Wafa Ma'alim Fithoriq",
     "full_name": "Wafa Ma'alim Fithoriq",
     "sector": "FNS",
-    "department": "Secretariat",
+    "department": "Secretarial Affairs",
     "division": "Assistant Project Manager"
   },
   {
@@ -92,15 +116,7 @@
     "name": "Syafira Ramadanty",
     "full_name": "Syafira Ramadanty",
     "sector": "FNS",
-    "department": "Secretariat",
-    "division": "Finance Officer"
-  },
-  {
-    "id": "13",
-    "name": "Nurul Rahmawati",
-    "full_name": "Nurul Rahmawati",
-    "sector": "FNS",
-    "department": "Secretariat",
+    "department": "Secretarial Affairs",
     "division": "Supervisor"
   },
   {
@@ -108,7 +124,7 @@
     "name": "Dwi Luvita Sari",
     "full_name": "Dwi Luvita Sari",
     "sector": "FNS",
-    "department": "Secretariat",
+    "department": "Secretarial Affairs",
     "division": "Correspondence Administration"
   },
   {
@@ -116,7 +132,7 @@
     "name": "Chusnul Nur Rahmahdhianti",
     "full_name": "Chusnul Nur Rahmahdhianti",
     "sector": "FNS",
-    "department": "Secretariat",
+    "department": "Secretarial Affairs",
     "division": "Correspondence Administration"
   },
   {
@@ -124,7 +140,7 @@
     "name": "Zahrah Nura Eryunanza",
     "full_name": "Zahrah Nura Eryunanza",
     "sector": "FNS",
-    "department": "Secretariat",
+    "department": "Secretarial Affairs",
     "division": "Correspondence Administration"
   },
   {
@@ -132,15 +148,15 @@
     "name": "Zahwa Nabila Shaqi",
     "full_name": "Zahwa Nabila Shaqi",
     "sector": "FNS",
-    "department": "Secretariat",
-    "division": "Correspondence Administration"
+    "department": "Secretarial Affairs",
+    "division": "General Administration"
   },
   {
     "id": "18",
     "name": "Shefiana Dhifta Yudha Octavia",
     "full_name": "Shefiana Dhifta Yudha Octavia",
     "sector": "FNS",
-    "department": "Secretariat",
+    "department": "Secretarial Affairs",
     "division": "General Administration"
   },
   {
@@ -148,7 +164,7 @@
     "name": "Khairunisa Salsabila Putri",
     "full_name": "Khairunisa Salsabila Putri",
     "sector": "FNS",
-    "department": "Secretariat",
+    "department": "Secretarial Affairs",
     "division": "General Administration"
   },
   {
@@ -156,7 +172,7 @@
     "name": "Suci Novia Triani",
     "full_name": "Suci Novia Triani",
     "sector": "FNS",
-    "department": "Secretariat",
+    "department": "Secretarial Affairs",
     "division": "Event Admininstration"
   },
   {
@@ -164,7 +180,7 @@
     "name": "Sabha Zidna Annabila",
     "full_name": "Sabha Zidna Annabila",
     "sector": "FNS",
-    "department": "Secretariat",
+    "department": "Secretarial Affairs",
     "division": "Event Admininstration"
   },
   {
@@ -1035,96 +1051,96 @@
     "id": "130",
     "name": "Nasya Rizka Saputri",
     "full_name": "Nasya Rizka Saputri",
-    "sector": "General",
-    "department": "Public Relation",
+    "sector": "Event",
+    "department": "Public Relations",
     "division": "Assistant Project Manager"
   },
   {
     "id": "131",
     "name": "Nazhif Alhuwaidie",
     "full_name": "Nazhif Alhuwaidie",
-    "sector": "General",
-    "department": "Public Relation",
+    "sector": "Event",
+    "department": "Public Relations",
     "division": "Supervisor"
   },
   {
     "id": "132",
     "name": "Cahyani Yulia Rahma",
     "full_name": "Cahyani Yulia Rahma",
-    "sector": "General",
-    "department": "Public Relation",
+    "sector": "Event",
+    "department": "Public Relations",
     "division": "Secretary & Finance Officer"
   },
   {
     "id": "133",
     "name": "Annisa Salsabilatul Mashumah",
     "full_name": "Annisa Salsabilatul Mashumah",
-    "sector": "General",
-    "department": "Public Relation",
+    "sector": "Event",
+    "department": "Public Relations",
     "division": "Event Division of Debtate Competition (KDBI)"
   },
   {
     "id": "134",
     "name": "Syifa Aulia Fairuza",
     "full_name": "Syifa Aulia Fairuza",
-    "sector": "General",
-    "department": "Public Relation",
+    "sector": "Event",
+    "department": "Public Relations",
     "division": "Event Division of Debtate Competition (KDBI)"
   },
   {
     "id": "135",
     "name": "Rangga Ramdhana",
     "full_name": "Rangga Ramdhana",
-    "sector": "General",
-    "department": "Public Relation",
+    "sector": "Event",
+    "department": "Public Relations",
     "division": "Event Division of Debtate Competition (EDC)"
   },
   {
     "id": "136",
     "name": "Karini Putri Surya",
     "full_name": "Karini Putri Surya",
-    "sector": "General",
-    "department": "Public Relation",
+    "sector": "Event",
+    "department": "Public Relations",
     "division": "Event Division of Debtate Competition (EDC)"
   },
   {
     "id": "137",
     "name": "Jahra Atiar Husaeni",
     "full_name": "Jahra Atiar Husaeni",
-    "sector": "General",
-    "department": "Public Relation",
+    "sector": "Event",
+    "department": "Public Relations",
     "division": "Event Division of Scientific Paper Competition (SPC)"
   },
   {
     "id": "138",
     "name": "Kasih Eigift Sinaga",
     "full_name": "Kasih Eigift Sinaga",
-    "sector": "General",
-    "department": "Public Relation",
+    "sector": "Event",
+    "department": "Public Relations",
     "division": "Event Division of Scientific Paper Competition (SPC)"
   },
   {
     "id": "139",
     "name": "Hemalia Putri",
     "full_name": "Hemalia Putri",
-    "sector": "General",
-    "department": "Public Relation",
+    "sector": "Event",
+    "department": "Public Relations",
     "division": "Event Division of Digital COntent Competition (DCC)"
   },
   {
     "id": "140",
     "name": "Muhammad Zaid Zidan",
     "full_name": "Muhammad Zaid Zidan",
-    "sector": "General",
-    "department": "Public Relation",
+    "sector": "Event",
+    "department": "Public Relations",
     "division": "Event Division of Digital COntent Competition (DCC)"
   },
   {
     "id": "141",
     "name": "Marsaa Fauziyyah",
     "full_name": "Marsaa Fauziyyah",
-    "sector": "General",
-    "department": "Public Relation",
+    "sector": "Event",
+    "department": "Public Relations",
     "division": "Civitas"
   },
   {
@@ -1132,7 +1148,7 @@
     "name": "Malik Hardiansyah",
     "full_name": "Malik Hardiansyah",
     "sector": "General",
-    "department": "Public Relation",
+    "department": "Public Relations",
     "division": "Field Coordinator"
   },
   {

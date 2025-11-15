@@ -90,9 +90,10 @@ export default function Home() {
           employee_id: selectedEmployee.id,
           employee_name: selectedEmployee.name,
           full_name: selectedEmployee.full_name,
-          sector: selectedEmployee.sector,
-          department: selectedEmployee.department,
-          division: selectedEmployee.division,
+          sector: selectedEmployee.sector || null,
+          department: selectedEmployee.department || null,
+          division: selectedEmployee.division || null,
+          position: selectedEmployee.position || null,
           instagram: formData.instagram,
           birth_place: formData.birth_place,
           birth_date: formData.birth_date,
@@ -157,7 +158,11 @@ export default function Home() {
                     >
                       <p className="font-medium text-gray-900">{employee.name}</p>
                       <p className="text-sm text-gray-600">{employee.full_name}</p>
-                      <p className="text-xs text-gray-500">{employee.department} - {employee.division}</p>
+                      {employee.position ? (
+                        <p className="text-xs text-indigo-600 font-semibold">{employee.position}</p>
+                      ) : (
+                        <p className="text-xs text-gray-500">{employee.department} - {employee.division}</p>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -181,45 +186,67 @@ export default function Home() {
                     />
                   </div>
 
-                  {/* Sektor */}
-                  <div>
-                    <label className="block text-sm font-medium text-indigo-700 mb-2">
-                      Sektor
-                    </label>
-                    <input
-                      type="text"
-                      value={selectedEmployee.sector}
-                      readOnly
-                      className="w-full px-4 py-3 border-2 border-indigo-100 rounded-xl bg-indigo-50 text-indigo-900 cursor-not-allowed"
-                    />
-                  </div>
-
-                  {/* Departemen */}
-                  <div>
-                    <label className="block text-sm font-medium text-indigo-700 mb-2">
-                      Departemen
-                    </label>
-                    <input
-                      type="text"
-                      value={selectedEmployee.department}
-                      readOnly
-                      className="w-full px-4 py-3 border-2 border-indigo-100 rounded-xl bg-indigo-50 text-indigo-900 cursor-not-allowed"
-                    />
-                  </div>
-
-                  {/* Divisi */}
-                  <div>
-                    <label className="block text-sm font-medium text-indigo-700 mb-2">
-                      Divisi
-                    </label>
-                    <input
-                      type="text"
-                      value={selectedEmployee.division}
-                      readOnly
-                      className="w-full px-4 py-3 border-2 border-indigo-100 rounded-xl bg-indigo-50 text-indigo-900 cursor-not-allowed"
-                    />
-                  </div>
+                  {/* Position (for PM/DPM) or Sektor (for regular) */}
+                  {selectedEmployee.position ? (
+                    <div className="md:col-span-1">
+                      <label className="block text-sm font-medium text-indigo-700 mb-2">
+                        Posisi
+                      </label>
+                      <input
+                        type="text"
+                        value={selectedEmployee.position}
+                        readOnly
+                        className="w-full px-4 py-3 border-2 border-indigo-100 rounded-xl bg-indigo-50 text-indigo-900 cursor-not-allowed"
+                      />
+                    </div>
+                  ) : (
+                    <>
+                      {/* Sektor */}
+                      <div>
+                        <label className="block text-sm font-medium text-indigo-700 mb-2">
+                          Sektor
+                        </label>
+                        <input
+                          type="text"
+                          value={selectedEmployee.sector}
+                          readOnly
+                          className="w-full px-4 py-3 border-2 border-indigo-100 rounded-xl bg-indigo-50 text-indigo-900 cursor-not-allowed"
+                        />
+                      </div>
+                    </>
+                  )}
                 </div>
+
+                {/* Department and Division only for non-PM/DPM */}
+                {!selectedEmployee.position && (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Departemen */}
+                    <div>
+                      <label className="block text-sm font-medium text-indigo-700 mb-2">
+                        Departemen
+                      </label>
+                      <input
+                        type="text"
+                        value={selectedEmployee.department}
+                        readOnly
+                        className="w-full px-4 py-3 border-2 border-indigo-100 rounded-xl bg-indigo-50 text-indigo-900 cursor-not-allowed"
+                      />
+                    </div>
+
+                    {/* Divisi */}
+                    <div>
+                      <label className="block text-sm font-medium text-indigo-700 mb-2">
+                        Divisi
+                      </label>
+                      <input
+                        type="text"
+                        value={selectedEmployee.division}
+                        readOnly
+                        className="w-full px-4 py-3 border-2 border-indigo-100 rounded-xl bg-indigo-50 text-indigo-900 cursor-not-allowed"
+                      />
+                    </div>
+                  </div>
+                )}
 
                 <hr className="border-gray-200" />
               </>

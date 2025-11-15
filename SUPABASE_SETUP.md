@@ -10,9 +10,10 @@ CREATE TABLE form_submissions (
   employee_id TEXT NOT NULL,
   employee_name TEXT NOT NULL,
   full_name TEXT NOT NULL,
-  sector TEXT NOT NULL,
-  department TEXT NOT NULL,
-  division TEXT NOT NULL,
+  sector TEXT,
+  department TEXT,
+  division TEXT,
+  position TEXT,
   program_studi TEXT NOT NULL,
   instagram TEXT NOT NULL,
   birth_place TEXT NOT NULL,
@@ -60,14 +61,19 @@ Form akan menyimpan data berikut:
 - **employee_id**: ID karyawan dari JSON
 - **employee_name**: Nama panggilan
 - **full_name**: Nama lengkap
-- **sector**: Sektor (FNS, Event, General)
-- **department**: Departemen (Finance, Secretariat, dll)
-- **division**: Divisi/Posisi
+- **position**: Posisi (untuk PM/DPM) - Optional
+- **sector**: Sektor (FNS, Event, General) - Optional untuk PM/DPM
+- **department**: Departemen (Finance, Secretarial Affairs, dll) - Optional untuk PM/DPM
+- **division**: Divisi/Posisi - Optional untuk PM/DPM
 - **program_studi**: Program Studi (Ilmu Politik, Hukum, Informatika, dll)
 - **instagram**: Username Instagram
 - **birth_place**: Tempat lahir
 - **birth_date**: Tanggal lahir
 - **quotes**: Quotes/motto
+
+**Catatan:** 
+- PM (Project Manager) dan DPM (Deputy Manager) hanya memiliki field `position`
+- Anggota biasa memiliki field `sector`, `department`, dan `division`
 
 ## 5. Query untuk Melihat Data
 
@@ -75,15 +81,25 @@ Form akan menyimpan data berikut:
 -- Lihat semua data yang sudah disubmit
 SELECT * FROM form_submissions ORDER BY created_at DESC;
 
+-- Lihat data PM/DPM
+SELECT * FROM form_submissions WHERE position IS NOT NULL;
+
 -- Lihat data berdasarkan departemen
 SELECT * FROM form_submissions WHERE department = 'Finance';
 
 -- Lihat data berdasarkan sector
 SELECT * FROM form_submissions WHERE sector = 'FNS';
 
--- Count data per departemen
+-- Count data per departemen (exclude PM/DPM)
 SELECT department, COUNT(*) as total 
 FROM form_submissions 
+WHERE department IS NOT NULL
 GROUP BY department 
 ORDER BY total DESC;
+
+-- Count data per posisi (PM/DPM)
+SELECT position, COUNT(*) as total 
+FROM form_submissions 
+WHERE position IS NOT NULL
+GROUP BY position;
 ```

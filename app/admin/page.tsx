@@ -2,16 +2,16 @@
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
-import * as XLSX from 'xlsx';
 
 interface FormSubmission {
   id: string;
   employee_id: string;
   employee_name: string;
   full_name: string;
-  sector: string;
-  department: string;
-  division: string;
+  sector?: string;
+  department?: string;
+  division?: string;
+  position?: string;
   program_studi: string;
   instagram: string;
   birth_place: string;
@@ -71,8 +71,9 @@ export default function AdminPage() {
       // Calculate department stats
       const deptMap = new Map<string, number>();
       data?.forEach((submission) => {
-        const count = deptMap.get(submission.department) || 0;
-        deptMap.set(submission.department, count + 1);
+        const dept = submission.position || submission.department || 'Unknown';
+        const count = deptMap.get(dept) || 0;
+        deptMap.set(dept, count + 1);
       });
 
       const statsArray = Array.from(deptMap.entries()).map(([department, count]) => ({
@@ -89,78 +90,306 @@ export default function AdminPage() {
     }
   };
 
-  const handleDownloadExcel = () => {
+  const handleDownloadSpreadsheet = async () => {
     if (submissions.length === 0) {
       alert('Tidak ada data untuk didownload');
       return;
     }
 
-    // Create a new workbook
-    const workbook = XLSX.utils.book_new();
-
-    // Group submissions by department
-    const departmentGroups = new Map<string, FormSubmission[]>();
-    submissions.forEach((submission) => {
-      const dept = submission.department;
-      if (!departmentGroups.has(dept)) {
-        departmentGroups.set(dept, []);
+    // Group by department/position
+    const grouped = new Map<string, typeof submissions>();
+    submissions.forEach(sub => {
+      const key = sub.position || sub.department || 'Unknown';
+      if (!grouped.has(key)) {
+        grouped.set(key, []);
       }
-      departmentGroups.get(dept)?.push(submission);
+      grouped.get(key)?.push(sub);
     });
 
-    // Create a sheet for each department
-    departmentGroups.forEach((deptSubmissions, department) => {
-      const worksheetData = deptSubmissions.map((sub, index) => ({
-        No: index + 1,
-        'Nama': sub.employee_name,
-        'Nama Lengkap': sub.full_name,
-        'Sektor': sub.sector,
-        'Departemen': sub.department,
-        'Divisi': sub.division,
-        'Program Studi': sub.program_studi,
-        'Instagram': sub.instagram,
-        'Tempat Lahir': sub.birth_place,
-        'Tanggal Lahir': sub.birth_date,
-        'Quotes': sub.quotes,
-        'Tanggal Input': new Date(sub.created_at).toLocaleString('id-ID'),
-      }));
+    const headers = ['No', 'Nama', 'Nama Lengkap', 'Posisi', 'Sektor', 'Departemen', 'Divisi', 'Program Studi', 'Instagram', 'Tempat Lahir', 'Tanggal Lahir', 'Quotes', 'Tanggal Input'];
+    
+    // Create sections for each department
+    let tableContent = '';
+    let deptIndex = 0;
+    const sortedDepts = Array.from(grouped.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+    
+    sortedDepts.forEach(([deptName, deptData]) => {
+      const allData = deptData.map((sub, index) => [
+        index + 1,
+        sub.employee_name,
+        sub.full_name,
+        sub.position || '-',
+        sub.sector || '-',
+        sub.department || '-',
+        sub.division || '-',
+        sub.program_studi,
+        sub.instagram,
+        sub.birth_place,
+        sub.birth_date,
+        sub.quotes,
+        new Date(sub.created_at).toLocaleString('id-ID'),
+      ]);
 
-      const worksheet = XLSX.utils.json_to_sheet(worksheetData);
-      
-      // Set column widths
-      worksheet['!cols'] = [
-        { wch: 5 },  // No
-        { wch: 20 }, // Nama
-        { wch: 30 }, // Nama Lengkap
-        { wch: 10 }, // Sektor
-        { wch: 20 }, // Departemen
-        { wch: 35 }, // Divisi
-        { wch: 35 }, // Program Studi
-        { wch: 20 }, // Instagram
-        { wch: 20 }, // Tempat Lahir
-        { wch: 15 }, // Tanggal Lahir
-        { wch: 50 }, // Quotes
-        { wch: 20 }, // Tanggal Input
-      ];
-
-      // Sanitize sheet name (Excel doesn't allow certain characters)
-      const sheetName = department.replace(/[\\\/\?\*\[\]]/g, '_').substring(0, 31);
-      XLSX.utils.book_append_sheet(workbook, worksheet, sheetName);
+      tableContent += `
+        <div class="department-section" id="dept-${deptIndex}">
+          <h2 class="dept-header">${deptName} (${deptData.length} orang)</h2>
+          <table class="data-table">
+            <thead>
+              <tr>${headers.map(h => `<th>${h}</th>`).join('')}</tr>
+            </thead>
+            <tbody>
+              ${allData.map(row => 
+                `<tr>${row.map(cell => `<td>${cell}</td>`).join('')}</tr>`
+              ).join('')}
+            </tbody>
+          </table>
+        </div>
+      `;
+      deptIndex++;
     });
 
-    // Create summary sheet
-    const summaryData = [
-      { Info: 'Total Submissions', Value: totalSubmissions },
-      { Info: '', Value: '' },
-      { Info: 'Department', Value: 'Count' },
-      ...stats.map(stat => ({ Info: stat.department, Value: stat.count })),
-    ];
-    const summarySheet = XLSX.utils.json_to_sheet(summaryData);
-    XLSX.utils.book_append_sheet(workbook, summarySheet, 'Summary');
+    // Create navigation menu
+    const navMenu = sortedDepts.map(([deptName], idx) => 
+      `<a href="#dept-${idx}" class="nav-link">${deptName}</a>`
+    ).join('');
+    
+    // Create HTML table
+    const htmlContent = `
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>Form Data Panitia - Per Departemen</title>
+        <style>
+          * { margin: 0; padding: 0; box-sizing: border-box; }
+          body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; 
+            background: #f3f4f6;
+            padding-bottom: 50px;
+          }
+          .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+          }
+          h1 { font-size: 28px; margin-bottom: 10px; }
+          .header p { opacity: 0.9; }
+          .toolbar {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+          }
+          .export-btn {
+            background: white;
+            color: #667eea;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+          }
+          .export-btn:hover { 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+          }
+          .navigation {
+            background: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          }
+          .nav-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1f2937;
+          }
+          .nav-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+          }
+          .nav-link {
+            display: block;
+            padding: 10px 15px;
+            background: #f3f4f6;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+          }
+          .nav-link:hover {
+            background: #e0e7ff;
+            color: #667eea;
+            border-color: #667eea;
+          }
+          .department-section {
+            margin: 20px;
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            scroll-margin-top: 100px;
+          }
+          .dept-header {
+            color: #667eea;
+            font-size: 20px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+          }
+          .data-table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            font-size: 14px;
+          }
+          .data-table th, .data-table td { 
+            border: 1px solid #e5e7eb; 
+            padding: 12px; 
+            text-align: left; 
+          }
+          .data-table th { 
+            background-color: #667eea; 
+            color: white; 
+            font-weight: 600;
+            position: sticky;
+            top: 95px;
+            z-index: 10;
+          }
+          .data-table tr:nth-child(even) { background-color: #f9fafb; }
+          .data-table tr:hover { background-color: #e0e7ff; }
+          .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #667eea;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            display: none;
+          }
+          .back-to-top:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+          }
+          @media print {
+            .header, .navigation, .export-btn, .back-to-top { display: none !important; }
+            .data-table th { position: relative; }
+            .department-section { page-break-inside: avoid; margin: 20px 0; }
+          }
+        </style>
+      </head>
+      <body>
+        <div class="header">
+          <h1>📊 Form Data Panitia - Per Departemen</h1>
+          <p>Total: ${submissions.length} data | ${grouped.size} departemen | ${new Date().toLocaleDateString('id-ID', { dateStyle: 'full' })}</p>
+          <div class="toolbar">
+            <button class="export-btn" onclick="copyAllData()">📋 Copy Semua Data</button>
+            <button class="export-btn" onclick="window.print()">🖨️ Print</button>
+            <button class="export-btn" onclick="exportToCSV()">💾 Download CSV</button>
+            <button class="export-btn" onclick="exportAllToGoogleSheets()">📊 Buka di Google Sheets</button>
+          </div>
+        </div>
 
-    // Generate Excel file
-    const fileName = `Form_Panitia_${new Date().toISOString().split('T')[0]}.xlsx`;
-    XLSX.writeFile(workbook, fileName);
+        <div class="navigation">
+          <div class="nav-title">📑 Navigasi Cepat - Pilih Departemen:</div>
+          <div class="nav-links">
+            ${navMenu}
+          </div>
+        </div>
+
+        ${tableContent}
+
+        <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+        <script>
+          // Show back to top button
+          window.addEventListener('scroll', () => {
+            const btn = document.getElementById('backToTop');
+            btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+          });
+
+          function copyAllData() {
+            const tables = document.querySelectorAll('.data-table');
+            let allText = '';
+            tables.forEach((table, idx) => {
+              const deptName = document.querySelectorAll('.dept-header')[idx].textContent;
+              allText += deptName + '\\n\\n';
+              const rows = table.querySelectorAll('tr');
+              rows.forEach(row => {
+                const cells = row.querySelectorAll('th, td');
+                allText += Array.from(cells).map(cell => cell.textContent).join('\\t') + '\\n';
+              });
+              allText += '\\n\\n';
+            });
+            
+            navigator.clipboard.writeText(allText).then(() => {
+              alert('✅ Semua data telah disalin ke clipboard!\\n\\nAnda bisa paste ke Excel atau Google Sheets.');
+            });
+          }
+
+          function exportAllToGoogleSheets() {
+            copyAllData();
+            setTimeout(() => {
+              window.open('https://docs.google.com/spreadsheets/create', '_blank');
+            }, 500);
+          }
+          
+          function exportToCSV() {
+            const allRows = [];
+            document.querySelectorAll('.department-section').forEach(section => {
+              const deptName = section.querySelector('.dept-header').textContent;
+              allRows.push([deptName]);
+              allRows.push([]);
+              
+              const table = section.querySelector('.data-table');
+              const rows = table.querySelectorAll('tr');
+              rows.forEach(row => {
+                const cells = row.querySelectorAll('th, td');
+                allRows.push(Array.from(cells).map(cell => {
+                  const text = cell.textContent;
+                  return text.includes(',') || text.includes('"') ? '"' + text.replace(/"/g, '""') + '"' : text;
+                }));
+              });
+              allRows.push([]);
+            });
+            
+            const csv = allRows.map(row => row.join(',')).join('\\n');
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Form_Panitia_Per_Departemen_${new Date().toISOString().split('T')[0]}.csv';
+            a.click();
+          }
+        </script>
+      </body>
+      </html>
+    `;
+
+    // Open in new window
+    const newWindow = window.open('', '_blank');
+    if (newWindow) {
+      newWindow.document.write(htmlContent);
+      newWindow.document.close();
+    }
   };
 
   // Login page
@@ -237,13 +466,14 @@ export default function AdminPage() {
             </div>
             <div className="flex gap-3">
               <button
-                onClick={handleDownloadExcel}
+                onClick={handleDownloadSpreadsheet}
                 className="bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 focus:ring-4 focus:ring-green-300 transition-all flex items-center gap-2"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+                  <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+                  <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
                 </svg>
-                Download Excel
+                Lihat Spreadsheet
               </button>
               <button
                 onClick={() => setIsAuthenticated(false)}
@@ -342,7 +572,7 @@ export default function AdminPage() {
                 <tr className="bg-indigo-50 border-b-2 border-indigo-200">
                   <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">No</th>
                   <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Nama</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Departemen</th>
+                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Posisi/Dept</th>
                   <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Divisi</th>
                   <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Instagram</th>
                   <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Tanggal Input</th>
@@ -353,8 +583,14 @@ export default function AdminPage() {
                   <tr key={submission.id} className="border-b border-gray-200 hover:bg-gray-50 transition">
                     <td className="px-4 py-3 text-sm text-gray-600">{index + 1}</td>
                     <td className="px-4 py-3 text-sm font-medium text-gray-900">{submission.employee_name}</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">{submission.department}</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">{submission.division}</td>
+                    <td className="px-4 py-3 text-sm text-gray-600">
+                      {submission.position ? (
+                        <span className="text-indigo-600 font-semibold">{submission.position}</span>
+                      ) : (
+                        submission.department || '-'
+                      )}
+                    </td>
+                    <td className="px-4 py-3 text-sm text-gray-600">{submission.division || '-'}</td>
                     <td className="px-4 py-3 text-sm text-indigo-600">@{submission.instagram}</td>
                     <td className="px-4 py-3 text-sm text-gray-600">
                       {new Date(submission.created_at).toLocaleString('id-ID', { 
@@ -369,7 +605,7 @@ export default function AdminPage() {
           </div>
           {submissions.length > 20 && (
             <p className="text-center text-gray-500 text-sm mt-4">
-              Menampilkan 20 dari {totalSubmissions} data. Download Excel untuk melihat semua data.
+              Menampilkan 20 dari {totalSubmissions} data. Klik "Lihat Spreadsheet" untuk melihat & export semua data.
             </p>
           )}
         </div>
