@@ -13,6 +13,8 @@ export default function Home() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [isCustomProdi, setIsCustomProdi] = useState(false);
+  const [customProdi, setCustomProdi] = useState('');
   
   const [formData, setFormData] = useState({
     instagram: '',
@@ -74,11 +76,28 @@ export default function Home() {
     setShowDropdown(false);
   };
 
+  const handleProdiChange = (value: string) => {
+    if (value === 'LAINNYA') {
+      setIsCustomProdi(true);
+      setFormData({ ...formData, program_studi: '' });
+      setCustomProdi('');
+    } else {
+      setIsCustomProdi(false);
+      setCustomProdi('');
+      setFormData({ ...formData, program_studi: value });
+    }
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!selectedEmployee) {
       alert('Silakan pilih karyawan terlebih dahulu');
+      return;
+    }
+
+    if (isCustomProdi && !customProdi.trim()) {
+      alert('Silakan isi Program Studi');
       return;
     }
 
@@ -100,7 +119,7 @@ export default function Home() {
           birth_place: formData.birth_place,
           birth_date: formData.birth_date,
           quotes: formData.quotes,
-          program_studi: formData.program_studi,
+          program_studi: isCustomProdi ? customProdi : formData.program_studi,
         });
 
       if (insertError) throw insertError;
@@ -149,6 +168,8 @@ export default function Home() {
           quotes: '',
           program_studi: '',
         });
+        setIsCustomProdi(false);
+        setCustomProdi('');
       }, 1000);
       
     } catch (error) {
@@ -325,10 +346,10 @@ export default function Home() {
                 Program Studi <span className="text-rose-500">*</span>
               </label>
               <select
-                value={formData.program_studi}
-                onChange={(e) => setFormData({ ...formData, program_studi: e.target.value })}
+                value={isCustomProdi ? 'LAINNYA' : formData.program_studi}
+                onChange={(e) => handleProdiChange(e.target.value)}
                 className="w-full px-4 py-3 border-2 border-indigo-200 rounded-xl bg-white focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all text-gray-700 disabled:opacity-50 disabled:cursor-not-allowed disabled:bg-gray-50"
-                required
+                required={!isCustomProdi}
                 disabled={!selectedEmployee}
               >
                 <option value="">Pilih Program Studi</option>
@@ -337,8 +358,44 @@ export default function Home() {
                     {prodi}
                   </option>
                 ))}
+                <option value="LAINNYA">✏️ Lainnya (Ketik Manual)</option>
               </select>
+              {!isCustomProdi && !formData.program_studi && selectedEmployee && (
+                <p className="text-xs text-gray-500 mt-2 flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                  </svg>
+                  Tidak menemukan program studi Anda? Pilih "✏️ Lainnya" untuk input manual
+                </p>
+              )}
             </div>
+
+            {/* Custom Program Studi Input */}
+            {isCustomProdi && (
+              <div className="bg-indigo-50 border-2 border-indigo-200 rounded-xl p-4 animate-fade-in">
+                <label className="flex items-center gap-2 text-sm font-medium text-indigo-700 mb-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                  </svg>
+                  Nama Program Studi <span className="text-rose-500">*</span>
+                </label>
+                <input
+                  type="text"
+                  value={customProdi}
+                  onChange={(e) => setCustomProdi(e.target.value)}
+                  className="w-full px-4 py-3 border-2 border-indigo-300 rounded-xl bg-white focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all placeholder:text-gray-400 text-gray-700"
+                  placeholder="Contoh: Program Studi Teknik Informatika"
+                  required
+                  autoFocus
+                />
+                <p className="text-xs text-indigo-600 mt-2 flex items-center gap-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                  </svg>
+                  Ketik nama lengkap program studi Anda dengan benar
+                </p>
+              </div>
+            )}
 
             {/* Instagram */}
             <div>
