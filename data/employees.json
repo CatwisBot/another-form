@@ -173,7 +173,7 @@
     "full_name": "Suci Novia Triani",
     "sector": "FNS",
     "department": "Secretarial Affairs",
-    "division": "Event Admininstration"
+    "division": "Event Administration"
   },
   {
     "id": "21",
@@ -181,7 +181,7 @@
     "full_name": "Sabha Zidna Annabila",
     "sector": "FNS",
     "department": "Secretarial Affairs",
-    "division": "Event Admininstration"
+    "division": "Event Administration"
   },
   {
     "id": "22",
@@ -797,7 +797,7 @@
     "full_name": "Malika Ma'asya Putri Hermalia",
     "sector": "Event",
     "department": "DCC",
-    "division": "Coordinator Short Video Compettion"
+    "division": "Coordinator Short Video Competition"
   },
   {
     "id": "101",
@@ -805,7 +805,7 @@
     "full_name": "Muhammad Daffa",
     "sector": "Event",
     "department": "DCC",
-    "division": "Coordinator Infographic Competition"
+    "division": "Division of Registration"
   },
   {
     "id": "102",
@@ -1123,7 +1123,7 @@
     "id": "142",
     "name": "Malik Hardiansyah",
     "full_name": "Malik Hardiansyah",
-    "sector": "General",
+    "sector": "Event",
     "department": "Public Relations",
     "division": "Event Division of Debate Competition (EDC)"
   },
