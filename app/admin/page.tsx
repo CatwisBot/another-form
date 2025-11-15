@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
+import ExcelJS from 'exceljs';
 
 interface FormSubmission {
   id: string;
@@ -36,6 +37,14 @@ export default function AdminPage() {
 
   const ADMIN_PASSWORD = 'akuNgoding21.'; // Ganti dengan password yang Anda inginkan
 
+  // Check localStorage on mount
+  useEffect(() => {
+    const savedAuth = localStorage.getItem('adminAuthenticated');
+    if (savedAuth === 'true') {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
   useEffect(() => {
     if (isAuthenticated) {
       fetchData();
@@ -46,11 +55,17 @@ export default function AdminPage() {
     e.preventDefault();
     if (password === ADMIN_PASSWORD) {
       setIsAuthenticated(true);
+      localStorage.setItem('adminAuthenticated', 'true');
       setError('');
     } else {
       setError('Password salah!');
       setPassword('');
     }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    localStorage.removeItem('adminAuthenticated');
   };
 
   const fetchData = async () => {
@@ -87,6 +102,193 @@ export default function AdminPage() {
       alert('Gagal mengambil data');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleDownloadExcel = async () => {
+    if (submissions.length === 0) {
+      alert('Tidak ada data untuk didownload');
+      return;
+    }
+
+    try {
+      // Create workbook
+      const workbook = new ExcelJS.Workbook();
+      workbook.creator = 'Admin';
+      workbook.created = new Date();
+
+      // Group by department/position
+      const grouped = new Map<string, typeof submissions>();
+      submissions.forEach(sub => {
+        const key = sub.position || sub.department || 'Unknown';
+        if (!grouped.has(key)) {
+          grouped.set(key, []);
+        }
+        grouped.get(key)?.push(sub);
+      });
+
+      const sortedDepts = Array.from(grouped.entries()).sort((a, b) => a[0].localeCompare(b[0]));
+
+      // Create Summary Sheet
+      const summarySheet = workbook.addWorksheet('Summary');
+      summarySheet.columns = [
+        { width: 40 },
+        { width: 15 }
+      ];
+
+      summarySheet.addRow(['Form Data Panitia', '']);
+      summarySheet.addRow(['Total Data:', submissions.length]);
+      summarySheet.addRow(['Total Departemen:', grouped.size]);
+      summarySheet.addRow(['Tanggal Export:', new Date().toLocaleString('id-ID', { dateStyle: 'full', timeStyle: 'short' })]);
+      summarySheet.addRow(['', '']);
+      summarySheet.addRow(['Departemen/Posisi', 'Jumlah']);
+
+      // Add department counts
+      sortedDepts.forEach(([deptName, deptData]) => {
+        summarySheet.addRow([deptName, deptData.length]);
+      });
+
+      // Style summary sheet
+      summarySheet.eachRow((row, rowNumber) => {
+        row.eachCell((cell) => {
+          cell.border = {
+            top: { style: 'thin' },
+            left: { style: 'thin' },
+            bottom: { style: 'thin' },
+            right: { style: 'thin' }
+          };
+          if (rowNumber === 1 || rowNumber === 6) {
+            cell.fill = {
+              type: 'pattern',
+              pattern: 'solid',
+              fgColor: { argb: 'FF667eea' }
+            };
+            cell.font = { bold: true, color: { argb: 'FFFFFFFF' } };
+          }
+        });
+      });
+
+      // Create sheet for each department
+      sortedDepts.forEach(([deptName, deptData]) => {
+        const sheetName = deptName.replace(/[:\\\\/?*\[\]]/g, '-').substring(0, 31);
+        const worksheet = workbook.addWorksheet(sheetName);
+
+        // Set column widths
+        worksheet.columns = [
+          { width: 5 },   // No
+          { width: 20 },  // Nama
+          { width: 25 },  // Nama Lengkap
+          { width: 20 },  // Posisi
+          { width: 15 },  // Sektor
+          { width: 20 },  // Departemen
+          { width: 20 },  // Divisi
+          { width: 25 },  // Program Studi
+          { width: 20 },  // Instagram
+          { width: 20 },  // Tempat Lahir
+          { width: 15 },  // Tanggal Lahir
+          { width: 40 },  // Quotes
+          { width: 20 }   // Tanggal Input
+        ];
+
+        // Add header rows
+        worksheet.addRow([deptName]);
+        worksheet.addRow([`Total: ${deptData.length} orang`]);
+        worksheet.addRow([]);
+
+        // Add table header
+        const headerRow = worksheet.addRow([
+          'No', 'Nama', 'Nama Lengkap', 'Posisi', 'Sektor', 'Departemen', 
+          'Divisi', 'Program Studi', 'Instagram', 'Tempat Lahir', 
+          'Tanggal Lahir', 'Quotes', 'Tanggal Input'
+        ]);
+
+        // Style header row
+        headerRow.eachCell((cell) => {
+          cell.fill = {
+            type: 'pattern',
+            pattern: 'solid',
+            fgColor: { argb: 'FF667eea' }
+          };
+          cell.font = { bold: true, color: { argb: 'FFFFFFFF' } };
+          cell.border = {
+            top: { style: 'thin' },
+            left: { style: 'thin' },
+            bottom: { style: 'thin' },
+            right: { style: 'thin' }
+          };
+        });
+
+        // Add data rows
+        deptData.forEach((sub, index) => {
+          const dataRow = worksheet.addRow([
+            index + 1,
+            sub.employee_name,
+            sub.full_name,
+            sub.position || '-',
+            sub.sector || '-',
+            sub.department || '-',
+            sub.division || '-',
+            sub.program_studi,
+            sub.instagram,
+            sub.birth_place,
+            sub.birth_date,
+            sub.quotes,
+            new Date(sub.created_at).toLocaleString('id-ID')
+          ]);
+
+          // Add borders to data cells
+          dataRow.eachCell((cell) => {
+            cell.border = {
+              top: { style: 'thin' },
+              left: { style: 'thin' },
+              bottom: { style: 'thin' },
+              right: { style: 'thin' }
+            };
+          });
+        });
+
+        // Style title rows
+        worksheet.getRow(1).eachCell((cell) => {
+          cell.fill = {
+            type: 'pattern',
+            pattern: 'solid',
+            fgColor: { argb: 'FF667eea' }
+          };
+          cell.font = { bold: true, color: { argb: 'FFFFFFFF' }, size: 14 };
+          cell.border = {
+            top: { style: 'thin' },
+            left: { style: 'thin' },
+            bottom: { style: 'thin' },
+            right: { style: 'thin' }
+          };
+        });
+
+        worksheet.getRow(2).eachCell((cell) => {
+          cell.border = {
+            top: { style: 'thin' },
+            left: { style: 'thin' },
+            bottom: { style: 'thin' },
+            right: { style: 'thin' }
+          };
+        });
+      });
+
+      // Generate Excel file
+      const buffer = await workbook.xlsx.writeBuffer();
+      const blob = new Blob([buffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `Form_Panitia_Per_Departemen_${new Date().toISOString().split('T')[0]}.xlsx`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      alert('✅ File Excel berhasil didownload!');
+    } catch (error) {
+      console.error('Error creating Excel:', error);
+      alert('Gagal membuat file Excel');
     }
   };
 
@@ -303,7 +505,6 @@ export default function AdminPage() {
           <div class="toolbar">
             <button class="export-btn" onclick="copyAllData()">📋 Copy Semua Data</button>
             <button class="export-btn" onclick="window.print()">🖨️ Print</button>
-            <button class="export-btn" onclick="exportToCSV()">💾 Download CSV</button>
             <button class="export-btn" onclick="exportAllToGoogleSheets()">📊 Buka di Google Sheets</button>
           </div>
         </div>
@@ -350,34 +551,6 @@ export default function AdminPage() {
             setTimeout(() => {
               window.open('https://docs.google.com/spreadsheets/create', '_blank');
             }, 500);
-          }
-          
-          function exportToCSV() {
-            const allRows = [];
-            document.querySelectorAll('.department-section').forEach(section => {
-              const deptName = section.querySelector('.dept-header').textContent;
-              allRows.push([deptName]);
-              allRows.push([]);
-              
-              const table = section.querySelector('.data-table');
-              const rows = table.querySelectorAll('tr');
-              rows.forEach(row => {
-                const cells = row.querySelectorAll('th, td');
-                allRows.push(Array.from(cells).map(cell => {
-                  const text = cell.textContent;
-                  return text.includes(',') || text.includes('"') ? '"' + text.replace(/"/g, '""') + '"' : text;
-                }));
-              });
-              allRows.push([]);
-            });
-            
-            const csv = allRows.map(row => row.join(',')).join('\\n');
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'Form_Panitia_Per_Departemen_${new Date().toISOString().split('T')[0]}.csv';
-            a.click();
           }
         </script>
       </body>
@@ -466,8 +639,17 @@ export default function AdminPage() {
             </div>
             <div className="flex gap-3">
               <button
-                onClick={handleDownloadSpreadsheet}
+                onClick={handleDownloadExcel}
                 className="bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 focus:ring-4 focus:ring-green-300 transition-all flex items-center gap-2"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
+                </svg>
+                Download Excel
+              </button>
+              <button
+                onClick={handleDownloadSpreadsheet}
+                className="bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition-all flex items-center gap-2"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
@@ -476,7 +658,7 @@ export default function AdminPage() {
                 Lihat Spreadsheet
               </button>
               <button
-                onClick={() => setIsAuthenticated(false)}
+                onClick={handleLogout}
                 className="bg-red-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-red-700 focus:ring-4 focus:ring-red-300 transition-all flex items-center gap-2"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
