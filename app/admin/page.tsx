@@ -628,40 +628,42 @@ export default function AdminPage() {
   }
 
   return (
-    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 py-12 px-4">
+    <div className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 py-6 md:py-12 px-3 md:px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-3xl font-bold text-gray-800">Admin Dashboard</h1>
-              <p className="text-gray-600 mt-2">Form Data Panitia</p>
+        <div className="bg-white rounded-2xl shadow-xl p-4 md:p-8 mb-4 md:mb-6">
+          <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
+            <div className="text-center md:text-left">
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-800">Admin Dashboard</h1>
+              <p className="text-gray-600 mt-1 md:mt-2 text-sm md:text-base">Form Data Panitia</p>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-col sm:flex-row gap-2 md:gap-3">
               <button
                 onClick={handleDownloadExcel}
-                className="bg-green-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-green-700 focus:ring-4 focus:ring-green-300 transition-all flex items-center gap-2"
+                className="bg-green-600 text-white px-4 md:px-6 py-2.5 md:py-3 rounded-xl text-sm md:text-base font-semibold hover:bg-green-700 focus:ring-4 focus:ring-green-300 transition-all flex items-center justify-center gap-2"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
                 </svg>
-                Download Excel
+                <span className="hidden sm:inline">Download Excel</span>
+                <span className="sm:hidden">Excel</span>
               </button>
               <button
                 onClick={handleDownloadSpreadsheet}
-                className="bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition-all flex items-center gap-2"
+                className="bg-blue-600 text-white px-4 md:px-6 py-2.5 md:py-3 rounded-xl text-sm md:text-base font-semibold hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition-all flex items-center justify-center gap-2"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
                   <path fillRule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clipRule="evenodd" />
                 </svg>
-                Lihat Spreadsheet
+                <span className="hidden sm:inline">Lihat Spreadsheet</span>
+                <span className="sm:hidden">Spreadsheet</span>
               </button>
               <button
                 onClick={handleLogout}
-                className="bg-red-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-red-700 focus:ring-4 focus:ring-red-300 transition-all flex items-center gap-2"
+                className="bg-red-600 text-white px-4 md:px-6 py-2.5 md:py-3 rounded-xl text-sm md:text-base font-semibold hover:bg-red-700 focus:ring-4 focus:ring-red-300 transition-all flex items-center justify-center gap-2"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clipRule="evenodd" />
                 </svg>
                 Logout
@@ -671,50 +673,50 @@ export default function AdminPage() {
         </div>
 
         {/* Statistics Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-          <div className="bg-white rounded-2xl shadow-lg p-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-4 md:mb-6">
+          <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-600 text-sm">Total Submissions</p>
-                <p className="text-4xl font-bold text-indigo-600 mt-2">{totalSubmissions}</p>
+                <p className="text-gray-600 text-xs md:text-sm">Total Submissions</p>
+                <p className="text-2xl md:text-4xl font-bold text-indigo-600 mt-1 md:mt-2">{totalSubmissions}</p>
               </div>
-              <div className="bg-indigo-100 p-4 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
+              <div className="bg-indigo-100 p-3 md:p-4 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
                 </svg>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-6">
+          <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-600 text-sm">Total Departments</p>
-                <p className="text-4xl font-bold text-green-600 mt-2">{stats.length}</p>
+                <p className="text-gray-600 text-xs md:text-sm">Total Departments</p>
+                <p className="text-2xl md:text-4xl font-bold text-green-600 mt-1 md:mt-2">{stats.length}</p>
               </div>
-              <div className="bg-green-100 p-4 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-green-600" viewBox="0 0 20 20" fill="currentColor">
+              <div className="bg-green-100 p-3 md:p-4 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8 text-green-600" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                 </svg>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg p-6">
+          <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6">
             <div className="flex items-center justify-between">
-              <div>
-                <p className="text-gray-600 text-sm">Last Updated</p>
-                <p className="text-lg font-semibold text-gray-800 mt-2">
+              <div className="min-w-0 flex-1">
+                <p className="text-gray-600 text-xs md:text-sm">Last Updated</p>
+                <p className="text-sm md:text-lg font-semibold text-gray-800 mt-1 md:mt-2 truncate">
                   {submissions.length > 0 
                     ? new Date(submissions[0].created_at).toLocaleString('id-ID', { 
-                        dateStyle: 'medium', 
+                        dateStyle: 'short', 
                         timeStyle: 'short' 
                       })
                     : '-'}
                 </p>
               </div>
-              <div className="bg-blue-100 p-4 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
+              <div className="bg-blue-100 p-3 md:p-4 rounded-full shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8 text-blue-600" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                 </svg>
               </div>
@@ -723,14 +725,14 @@ export default function AdminPage() {
         </div>
 
         {/* Department Statistics */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 mb-6">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Statistik per Departemen</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="bg-white rounded-2xl shadow-xl p-4 md:p-8 mb-4 md:mb-6">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">Statistik per Departemen</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
             {stats.map((stat) => (
-              <div key={stat.department} className="border-2 border-indigo-100 rounded-xl p-4 hover:border-indigo-300 transition">
+              <div key={stat.department} className="border-2 border-indigo-100 rounded-xl p-3 md:p-4 hover:border-indigo-300 transition">
                 <div className="flex justify-between items-center">
-                  <p className="font-semibold text-gray-800">{stat.department}</p>
-                  <span className="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-bold">
+                  <p className="font-semibold text-gray-800 text-sm md:text-base truncate pr-2">{stat.department}</p>
+                  <span className="bg-indigo-100 text-indigo-700 px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-bold shrink-0">
                     {stat.count}
                   </span>
                 </div>
@@ -746,47 +748,58 @@ export default function AdminPage() {
         </div>
 
         {/* Recent Submissions Table */}
-        <div className="bg-white rounded-2xl shadow-xl p-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">Data Terbaru</h2>
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead>
-                <tr className="bg-indigo-50 border-b-2 border-indigo-200">
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">No</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Nama</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Posisi/Dept</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Divisi</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Instagram</th>
-                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Tanggal Input</th>
-                </tr>
-              </thead>
-              <tbody>
-                {submissions.slice(0, 20).map((submission, index) => (
-                  <tr key={submission.id} className="border-b border-gray-200 hover:bg-gray-50 transition">
-                    <td className="px-4 py-3 text-sm text-gray-600">{index + 1}</td>
-                    <td className="px-4 py-3 text-sm font-medium text-gray-900">{submission.employee_name}</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">
-                      {submission.position ? (
-                        <span className="text-indigo-600 font-semibold">{submission.position}</span>
-                      ) : (
-                        submission.department || '-'
-                      )}
-                    </td>
-                    <td className="px-4 py-3 text-sm text-gray-600">{submission.division || '-'}</td>
-                    <td className="px-4 py-3 text-sm text-indigo-600">@{submission.instagram}</td>
-                    <td className="px-4 py-3 text-sm text-gray-600">
-                      {new Date(submission.created_at).toLocaleString('id-ID', { 
-                        dateStyle: 'short', 
-                        timeStyle: 'short' 
-                      })}
-                    </td>
+        <div className="bg-white rounded-2xl shadow-xl p-4 md:p-8">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">Data Terbaru</h2>
+          <div className="overflow-x-auto -mx-4 md:mx-0">
+            <div className="inline-block min-w-full align-middle">
+              <table className="min-w-full">
+                <thead>
+                  <tr className="bg-indigo-50 border-b-2 border-indigo-200">
+                    <th className="px-2 md:px-4 py-2 md:py-3 text-left text-xs md:text-sm font-semibold text-gray-700">No</th>
+                    <th className="px-2 md:px-4 py-2 md:py-3 text-left text-xs md:text-sm font-semibold text-gray-700">Nama</th>
+                    <th className="hidden sm:table-cell px-2 md:px-4 py-2 md:py-3 text-left text-xs md:text-sm font-semibold text-gray-700">Posisi/Dept</th>
+                    <th className="hidden lg:table-cell px-2 md:px-4 py-2 md:py-3 text-left text-xs md:text-sm font-semibold text-gray-700">Divisi</th>
+                    <th className="px-2 md:px-4 py-2 md:py-3 text-left text-xs md:text-sm font-semibold text-gray-700">Instagram</th>
+                    <th className="hidden md:table-cell px-2 md:px-4 py-2 md:py-3 text-left text-xs md:text-sm font-semibold text-gray-700">Tanggal</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {submissions.slice(0, 20).map((submission, index) => (
+                    <tr key={submission.id} className="border-b border-gray-200 hover:bg-gray-50 transition">
+                      <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-600">{index + 1}</td>
+                      <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm font-medium text-gray-900">
+                        <div className="max-w-[120px] md:max-w-none truncate">{submission.employee_name}</div>
+                        <div className="sm:hidden text-xs text-gray-500 mt-0.5">
+                          {submission.position || submission.department || '-'}
+                        </div>
+                      </td>
+                      <td className="hidden sm:table-cell px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-600">
+                        {submission.position ? (
+                          <span className="text-indigo-600 font-semibold">{submission.position}</span>
+                        ) : (
+                          <span className="truncate block max-w-[150px]">{submission.department || '-'}</span>
+                        )}
+                      </td>
+                      <td className="hidden lg:table-cell px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-600">
+                        <span className="truncate block max-w-[150px]">{submission.division || '-'}</span>
+                      </td>
+                      <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-indigo-600">
+                        <span className="truncate block max-w-[100px] md:max-w-none">@{submission.instagram}</span>
+                      </td>
+                      <td className="hidden md:table-cell px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-600 whitespace-nowrap">
+                        {new Date(submission.created_at).toLocaleString('id-ID', { 
+                          dateStyle: 'short', 
+                          timeStyle: 'short' 
+                        })}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
           {submissions.length > 20 && (
-            <p className="text-center text-gray-500 text-sm mt-4">
+            <p className="text-center text-gray-500 text-xs md:text-sm mt-3 md:mt-4 px-2">
               Menampilkan 20 dari {totalSubmissions} data. Klik "Lihat Spreadsheet" untuk melihat & export semua data.
             </p>
           )}
