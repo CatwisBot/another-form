@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import { Employee, FormData } from '@/types';
 import employeesData from '@/data/employees.json';
+import confetti from 'canvas-confetti';
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -11,6 +12,7 @@ export default function Home() {
   const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(null);
   const [showDropdown, setShowDropdown] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   
   const [formData, setFormData] = useState({
     instagram: '',
@@ -103,18 +105,51 @@ export default function Home() {
 
       if (insertError) throw insertError;
 
-      alert('Form berhasil dikirim!');
+      // Show success modal
+      setShowSuccessModal(true);
       
-      // Reset form
-      setSelectedEmployee(null);
-      setSearchQuery('');
-      setFormData({
-        instagram: '',
-        birth_place: '',
-        birth_date: '',
-        quotes: '',
-        program_studi: '',
-      });
+      // Fire confetti
+      const duration = 3000;
+      const animationEnd = Date.now() + duration;
+      const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 9999 };
+
+      const randomInRange = (min: number, max: number) => {
+        return Math.random() * (max - min) + min;
+      };
+
+      const interval: any = setInterval(() => {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
+          return clearInterval(interval);
+        }
+
+        const particleCount = 50 * (timeLeft / duration);
+
+        confetti({
+          ...defaults,
+          particleCount,
+          origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 }
+        });
+        confetti({
+          ...defaults,
+          particleCount,
+          origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 }
+        });
+      }, 250);
+
+      // Reset form after delay
+      setTimeout(() => {
+        setSelectedEmployee(null);
+        setSearchQuery('');
+        setFormData({
+          instagram: '',
+          birth_place: '',
+          birth_date: '',
+          quotes: '',
+          program_studi: '',
+        });
+      }, 1000);
       
     } catch (error) {
       console.error('Error:', error);
@@ -126,6 +161,38 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-linear-to-br from-blue-50 to-indigo-100 py-12 px-4">
+      {/* Success Modal */}
+      {showSuccessModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 px-4">
+          <div className="bg-white rounded-3xl shadow-2xl p-8 max-w-md w-full transform animate-bounce-in">
+            <div className="text-center">
+              {/* Success Icon */}
+              <div className="mx-auto flex items-center justify-center h-24 w-24 rounded-full bg-green-100 mb-6">
+                <svg className="h-16 w-16 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              
+              {/* Success Message */}
+              <h3 className="text-3xl font-bold text-gray-900 mb-3">
+                🎉 Berhasil! 🎉
+              </h3>
+              <p className="text-lg text-gray-600 mb-6">
+                Form Anda telah berhasil dikirim!
+              </p>
+              
+              {/* Close Button */}
+              <button
+                onClick={() => setShowSuccessModal(false)}
+                className="bg-linear-to-r from-indigo-600 to-purple-600 text-white px-8 py-3 rounded-xl font-semibold text-lg hover:from-indigo-700 hover:to-purple-700 focus:ring-4 focus:ring-indigo-300 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                Tutup
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="max-w-2xl mx-auto">
         <div className="bg-white rounded-2xl shadow-xl p-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
