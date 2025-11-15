@@ -296,14 +296,6 @@
     "division": "Division of Graphic Design"
   },
   {
-    "id": "36",
-    "name": "Siti Marsya Aulia Saifullah",
-    "full_name": "Siti Marsya Aulia Saifullah",
-    "sector": "FNS",
-    "department": "Advertising",
-    "division": "Division of Graphic Design"
-  },
-  {
     "id": "37",
     "name": "Najwa Khailillah Putri",
     "full_name": "Najwa Khailillah Putri",
@@ -325,7 +317,7 @@
     "full_name": "Yogi Finanda",
     "sector": "FNS",
     "department": "Advertising",
-    "division": "Division of Documentary"
+    "division": "Division of Graphic Design"
   },
   {
     "id": "40",
@@ -528,14 +520,6 @@
     "division": "PIC of Administration Division"
   },
   {
-    "id": "65",
-    "name": "Nadya Dwi Meidiana",
-    "full_name": "Nadya Dwi Meidiana",
-    "sector": "Event",
-    "department": "Debate",
-    "division": "Administration Division"
-  },
-  {
     "id": "66",
     "name": "Khayla Namanda Putri",
     "full_name": "Khayla Namanda Putri",
@@ -601,8 +585,8 @@
   },
   {
     "id": "74",
-    "name": "Jamine Amalia",
-    "full_name": "Jamine Amalia",
+    "name": "Jasmine Amalia",
+    "full_name": "Jasmine Amalia",
     "sector": "Event",
     "department": "Debate",
     "division": "PIC of CAP Division"
@@ -1061,7 +1045,7 @@
     "full_name": "Nazhif Alhuwaidie",
     "sector": "Event",
     "department": "Public Relations",
-    "division": "Supervisor"
+    "division": "Event Division of Debtate Competition (EDC)"
   },
   {
     "id": "132",
@@ -1088,20 +1072,12 @@
     "division": "Event Division of Debtate Competition (KDBI)"
   },
   {
-    "id": "135",
-    "name": "Rangga Ramdhana",
-    "full_name": "Rangga Ramdhana",
-    "sector": "Event",
-    "department": "Public Relations",
-    "division": "Event Division of Debtate Competition (EDC)"
-  },
-  {
     "id": "136",
     "name": "Karini Putri Surya",
     "full_name": "Karini Putri Surya",
     "sector": "Event",
     "department": "Public Relations",
-    "division": "Event Division of Debtate Competition (EDC)"
+    "division": "Supervisor"
   },
   {
     "id": "137",
@@ -1113,11 +1089,11 @@
   },
   {
     "id": "138",
-    "name": "Kasih Eigift Sinaga",
-    "full_name": "Kasih Eigift Sinaga",
-    "sector": "Event",
-    "department": "Public Relations",
-    "division": "Event Division of Scientific Paper Competition (SPC)"
+    "name": "Rachmat Akif Khairunnaban",
+    "full_name": "Rachmat Akif Khairunnaban",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Division of Infrastructure"
   },
   {
     "id": "139",
@@ -1129,8 +1105,8 @@
   },
   {
     "id": "140",
-    "name": "Muhammad Zaid Zidan",
-    "full_name": "Muhammad Zaid Zidan",
+    "name": "Muhammad Zaid Zaidan",
+    "full_name": "Muhammad Zaid Zaidan",
     "sector": "Event",
     "department": "Public Relations",
     "division": "Event Division of Digital COntent Competition (DCC)"
@@ -1141,7 +1117,7 @@
     "full_name": "Marsaa Fauziyyah",
     "sector": "Event",
     "department": "Public Relations",
-    "division": "Civitas"
+    "division": "Event Division of Scientific Paper Competition (SPC)"
   },
   {
     "id": "142",
@@ -1149,7 +1125,7 @@
     "full_name": "Malik Hardiansyah",
     "sector": "General",
     "department": "Public Relations",
-    "division": "Field Coordinator"
+    "division": "Event Division of Debtate Competition (EDC)"
   },
   {
     "id": "143",
@@ -1608,14 +1584,6 @@
     "division": "Secretary and Finance Officer"
   },
   {
-    "id": "200",
-    "name": "Muhammad Aufa Roiszul Hakim",
-    "full_name": "Muhammad Aufa Roiszul Hakim",
-    "sector": "General",
-    "department": "Security",
-    "division": "Crowd Control & Preparation"
-  },
-  {
     "id": "201",
     "name": "Ahmad Irfan Al Faqih",
     "full_name": "Ahmad Irfan Al Faqih",
@@ -1694,5 +1662,14 @@
     "sector": "General",
     "department": "Security",
     "division": "Patroly Team"
+  },
+  {
+    "id": "211",
+    "name": "Muhammad Nur Fajar",
+    "full_name": "Muhammad Nur Fajar",
+    "sector": "General",
+    "department": "Infrastructure",
+    "division": "Division of Facility"
   }
 ]
+
