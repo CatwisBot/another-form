@@ -15,6 +15,7 @@ export default function Home() {
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const [isCustomProdi, setIsCustomProdi] = useState(false);
   const [customProdi, setCustomProdi] = useState('');
+  const [selectedEmployeeIds, setSelectedEmployeeIds] = useState<string[]>([]);
   
   const [formData, setFormData] = useState({
     instagram: '',
@@ -62,18 +63,20 @@ export default function Home() {
     }
 
     const filtered = employeesData.filter((employee) =>
-      employee.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      employee.full_name.toLowerCase().includes(searchQuery.toLowerCase())
+      (employee.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      employee.full_name.toLowerCase().includes(searchQuery.toLowerCase())) &&
+      !selectedEmployeeIds.includes(employee.id)
     );
 
     setEmployees(filtered);
     setShowDropdown(filtered.length > 0);
-  }, [searchQuery]);
+  }, [searchQuery, selectedEmployeeIds]);
 
   const handleEmployeeSelect = (employee: Employee) => {
     setSelectedEmployee(employee);
     setSearchQuery(employee.name);
     setShowDropdown(false);
+    setSelectedEmployeeIds([...selectedEmployeeIds, employee.id]);
   };
 
   const handleProdiChange = (value: string) => {
@@ -170,6 +173,7 @@ export default function Home() {
         });
         setIsCustomProdi(false);
         setCustomProdi('');
+        // Do not reset selectedEmployeeIds - keep them hidden from future searches
       }, 1000);
       
     } catch (error) {
