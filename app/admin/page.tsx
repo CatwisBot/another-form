@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '@/lib/supabase';
 import ExcelJS from 'exceljs';
+import employeesData from '@/data/employees.json';
 
 interface FormSubmission {
   id: string;
@@ -34,6 +35,8 @@ export default function AdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [notSubmitted, setNotSubmitted] = useState<typeof employeesData>([]);
+  const [activeTab, setActiveTab] = useState<string>('all');
 
   const ADMIN_PASSWORD = 'akuNgoding21.'; // Ganti dengan password yang Anda inginkan
 
@@ -97,6 +100,11 @@ export default function AdminPage() {
       })).sort((a, b) => b.count - a.count);
 
       setStats(statsArray);
+
+      // Find employees who haven't submitted
+      const submittedIds = new Set(data?.map(sub => sub.employee_id) || []);
+      const notSubmittedList = employeesData.filter(emp => !submittedIds.has(emp.id));
+      setNotSubmitted(notSubmittedList);
     } catch (error) {
       console.error('Error fetching data:', error);
       alert('Gagal mengambil data');
@@ -677,12 +685,13 @@ export default function AdminPage() {
           <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-600 text-xs md:text-sm">Total Submissions</p>
-                <p className="text-2xl md:text-4xl font-bold text-indigo-600 mt-1 md:mt-2">{totalSubmissions}</p>
+                <p className="text-gray-600 text-xs md:text-sm">Sudah Mengisi</p>
+                <p className="text-2xl md:text-4xl font-bold text-green-600 mt-1 md:mt-2">{totalSubmissions}</p>
+                <p className="text-xs text-gray-500 mt-1">{((totalSubmissions / employeesData.length) * 100).toFixed(2)}% dari {employeesData.length}</p>
               </div>
-              <div className="bg-indigo-100 p-3 md:p-4 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8 text-indigo-600" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
+              <div className="bg-green-100 p-3 md:p-4 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8 text-green-600" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                 </svg>
               </div>
             </div>
@@ -691,12 +700,13 @@ export default function AdminPage() {
           <div className="bg-white rounded-2xl shadow-lg p-4 md:p-6">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-gray-600 text-xs md:text-sm">Total Departments</p>
-                <p className="text-2xl md:text-4xl font-bold text-green-600 mt-1 md:mt-2">{stats.length}</p>
+                <p className="text-gray-600 text-xs md:text-sm">Belum Mengisi</p>
+                <p className="text-2xl md:text-4xl font-bold text-rose-600 mt-1 md:mt-2">{notSubmitted.length}</p>
+                <p className="text-xs text-gray-500 mt-1">{((notSubmitted.length / employeesData.length) * 100).toFixed(2)}% dari {employeesData.length}</p>
               </div>
-              <div className="bg-green-100 p-3 md:p-4 rounded-full">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8 text-green-600" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+              <div className="bg-rose-100 p-3 md:p-4 rounded-full">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 md:h-8 md:w-8 text-rose-600" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
                 </svg>
               </div>
             </div>
@@ -747,7 +757,128 @@ export default function AdminPage() {
           </div>
         </div>
 
-        {/* Recent Submissions Table */}
+        {/* Belum Mengisi Form Section with Tabs */}
+        {notSubmitted.length > 0 && (
+          <div className="bg-white rounded-2xl shadow-xl p-4 md:p-8 mb-4 md:mb-6">
+            <div className="flex items-center justify-between mb-4 md:mb-6">
+              <div>
+                <h2 className="text-xl md:text-2xl font-bold text-gray-800">Belum Mengisi Form</h2>
+                <p className="text-sm text-gray-600 mt-1">{notSubmitted.length} dari {employeesData.length} orang</p>
+              </div>
+              <div className="bg-rose-100 px-4 py-2 rounded-full">
+                <span className="text-rose-700 font-bold text-lg">{((notSubmitted.length / employeesData.length) * 100).toFixed(2)}%</span>
+              </div>
+            </div>
+
+            {/* Tabs Navigation */}
+            {(() => {
+              // Group not submitted by position or department
+              const grouped = new Map<string, typeof employeesData>();
+              notSubmitted.forEach(emp => {
+                const key = emp.position || emp.department || 'Lainnya';
+                if (!grouped.has(key)) {
+                  grouped.set(key, []);
+                }
+                grouped.get(key)?.push(emp);
+              });
+
+              const sortedGroups = Array.from(grouped.entries()).sort((a, b) => b[1].length - a[1].length);
+              const filteredData = activeTab === 'all' ? notSubmitted : (grouped.get(activeTab) || []);
+
+              return (
+                <>
+                  {/* Tab Buttons */}
+                  <div 
+                    className="flex gap-2 mb-6 overflow-x-auto pb-2 scrollbar-thin cursor-grab active:cursor-grabbing"
+                    style={{ 
+                      scrollbarWidth: 'thin',
+                      scrollbarColor: '#f43f5e #fecdd3'
+                    }}
+                  >
+                    <button
+                      onClick={() => setActiveTab('all')}
+                      className={`px-4 py-2 rounded-lg font-semibold text-sm whitespace-nowrap transition-all ${
+                        activeTab === 'all'
+                          ? 'bg-rose-600 text-white shadow-lg'
+                          : 'bg-rose-50 text-rose-600 hover:bg-rose-100'
+                      }`}
+                    >
+                      Semua ({notSubmitted.length})
+                    </button>
+                    {sortedGroups.map(([groupName, groupData]) => (
+                      <button
+                        key={groupName}
+                        onClick={() => setActiveTab(groupName)}
+                        className={`px-4 py-2 rounded-lg font-semibold text-sm whitespace-nowrap transition-all ${
+                          activeTab === groupName
+                            ? 'bg-rose-600 text-white shadow-lg'
+                            : 'bg-rose-50 text-rose-600 hover:bg-rose-100'
+                        }`}
+                      >
+                        {groupName} ({groupData.length})
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Tab Content - Table */}
+                  <div className="overflow-x-auto">
+                    <table className="w-full">
+                      <thead>
+                        <tr className="bg-rose-50 border-b-2 border-rose-200">
+                          <th className="px-3 md:px-4 py-3 text-left text-xs md:text-sm font-semibold text-rose-700">No</th>
+                          <th className="px-3 md:px-4 py-3 text-left text-xs md:text-sm font-semibold text-rose-700">Nama</th>
+                          {activeTab === 'all' && (
+                            <th className="px-3 md:px-4 py-3 text-left text-xs md:text-sm font-semibold text-rose-700">Posisi/Departemen</th>
+                          )}
+                          {activeTab !== 'all' && (
+                            <th className="px-3 md:px-4 py-3 text-left text-xs md:text-sm font-semibold text-rose-700 hidden lg:table-cell">Divisi</th>
+                          )}
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-200">
+                        {filteredData.length > 0 ? (
+                          filteredData.map((employee, index) => (
+                            <tr key={employee.id} className="hover:bg-rose-50 transition">
+                              <td className="px-3 md:px-4 py-3 text-xs md:text-sm text-gray-700">{index + 1}</td>
+                              <td className="px-3 md:px-4 py-3 text-xs md:text-sm font-medium text-gray-900">{employee.name}</td>
+                              {activeTab === 'all' && (
+                                <td className="px-3 md:px-4 py-3 text-xs md:text-sm text-gray-600">
+                                  {employee.position || `${employee.department} - ${employee.division}`}
+                                </td>
+                              )}
+                              {activeTab !== 'all' && employee.division && (
+                                <td className="px-3 md:px-4 py-3 text-xs md:text-sm text-gray-600 hidden lg:table-cell">
+                                  {employee.division}
+                                </td>
+                              )}
+                            </tr>
+                          ))
+                        ) : (
+                          <tr>
+                            <td colSpan={3} className="px-3 md:px-4 py-8 text-center text-gray-500">
+                              Tidak ada data
+                            </td>
+                          </tr>
+                        )}
+                      </tbody>
+                    </table>
+                  </div>
+
+                  {/* Summary Info */}
+                  <div className="mt-4 p-3 bg-rose-50 rounded-lg">
+                    <p className="text-sm text-rose-700">
+                      <span className="font-semibold">
+                        {activeTab === 'all' ? 'Total' : activeTab}:
+                      </span> {filteredData.length} orang belum mengisi form
+                    </p>
+                  </div>
+                </>
+              );
+            })()}
+          </div>
+        )}
+
+        {/* Submissions Table */}
         <div className="bg-white rounded-2xl shadow-xl p-4 md:p-8">
           <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6">Data Terbaru</h2>
           <div className="overflow-x-auto -mx-4 md:mx-0">
@@ -783,8 +914,15 @@ export default function AdminPage() {
                       <td className="hidden lg:table-cell px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-600">
                         <span className="truncate block max-w-[150px]">{submission.division || '-'}</span>
                       </td>
-                      <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-indigo-600">
-                        <span className="truncate block max-w-[100px] md:max-w-none">@{submission.instagram}</span>
+                      <td className="px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm">
+                        <a 
+                          href={`https://instagram.com/${submission.instagram}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-indigo-600 hover:text-indigo-800 hover:underline font-medium flex items-center gap-1 max-w-fit"
+                        >
+                          <span className="truncate max-w-[100px] md:max-w-none">@{submission.instagram}</span>
+                        </a>
                       </td>
                       <td className="hidden md:table-cell px-2 md:px-4 py-2 md:py-3 text-xs md:text-sm text-gray-600 whitespace-nowrap">
                         {new Date(submission.created_at).toLocaleString('id-ID', { 
