@@ -18,6 +18,13 @@ export default function Home() {
   const [selectedEmployeeIds, setSelectedEmployeeIds] = useState<string[]>([]);
   const [quotesLength, setQuotesLength] = useState(0);
   const [formProgress, setFormProgress] = useState(0);
+  const [editableEmployee, setEditableEmployee] = useState({
+    full_name: '',
+    position: '',
+    sector: '',
+    department: '',
+    division: '',
+  });
   
   const [formData, setFormData] = useState({
     instagram: '',
@@ -94,6 +101,13 @@ export default function Home() {
     setSearchQuery(employee.name);
     setShowDropdown(false);
     setSelectedEmployeeIds([...selectedEmployeeIds, employee.id]);
+    setEditableEmployee({
+      full_name: employee.full_name || '',
+      position: employee.position || '',
+      sector: employee.sector || '',
+      department: employee.department || '',
+      division: employee.division || '',
+    });
   };
 
   const handleProdiChange = (value: string) => {
@@ -130,11 +144,11 @@ export default function Home() {
         .insert({
           employee_id: selectedEmployee.id,
           employee_name: selectedEmployee.name,
-          full_name: selectedEmployee.full_name,
-          sector: selectedEmployee.sector || null,
-          department: selectedEmployee.department || null,
-          division: selectedEmployee.division || null,
-          position: selectedEmployee.position || null,
+          full_name: editableEmployee.full_name || selectedEmployee.full_name,
+          sector: editableEmployee.sector || null,
+          department: editableEmployee.department || null,
+          division: editableEmployee.division || null,
+          position: editableEmployee.position || null,
           instagram: formData.instagram,
           birth_place: formData.birth_place,
           birth_date: formData.birth_date,
@@ -344,7 +358,7 @@ export default function Home() {
             </div>
 
 
-            {/* Auto-filled Fields (Read-only) */}
+            {/* Auto-filled Fields (Editable) */}
             {selectedEmployee && (
               <>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -358,9 +372,9 @@ export default function Home() {
                     </label>
                     <input
                       type="text"
-                      value={selectedEmployee.full_name}
-                      readOnly
-                      className="w-full px-4 py-3 border-2 border-indigo-100 rounded-xl bg-indigo-50 text-indigo-900 cursor-not-allowed font-medium"
+                      value={editableEmployee.full_name}
+                      onChange={(e) => setEditableEmployee({ ...editableEmployee, full_name: e.target.value })}
+                      className="w-full px-4 py-3 border-2 border-indigo-200 rounded-xl bg-white focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all text-gray-700"
                     />
                   </div>
 
@@ -372,9 +386,9 @@ export default function Home() {
                       </label>
                       <input
                         type="text"
-                        value={selectedEmployee.position}
-                        readOnly
-                        className="w-full px-4 py-3 border-2 border-indigo-100 rounded-xl bg-indigo-50 text-indigo-900 cursor-not-allowed"
+                        value={editableEmployee.position}
+                        onChange={(e) => setEditableEmployee({ ...editableEmployee, position: e.target.value })}
+                        className="w-full px-4 py-3 border-2 border-indigo-200 rounded-xl bg-white focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all text-gray-700"
                       />
                     </div>
                   ) : (
@@ -386,9 +400,9 @@ export default function Home() {
                         </label>
                         <input
                           type="text"
-                          value={selectedEmployee.sector}
-                          readOnly
-                          className="w-full px-4 py-3 border-2 border-indigo-100 rounded-xl bg-indigo-50 text-indigo-900 cursor-not-allowed"
+                          value={editableEmployee.sector}
+                          onChange={(e) => setEditableEmployee({ ...editableEmployee, sector: e.target.value })}
+                          className="w-full px-4 py-3 border-2 border-indigo-200 rounded-xl bg-white focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all text-gray-700"
                         />
                       </div>
                     </>
@@ -405,9 +419,9 @@ export default function Home() {
                       </label>
                       <input
                         type="text"
-                        value={selectedEmployee.department}
-                        readOnly
-                        className="w-full px-4 py-3 border-2 border-indigo-100 rounded-xl bg-indigo-50 text-indigo-900 cursor-not-allowed"
+                        value={editableEmployee.department}
+                        onChange={(e) => setEditableEmployee({ ...editableEmployee, department: e.target.value })}
+                        className="w-full px-4 py-3 border-2 border-indigo-200 rounded-xl bg-white focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all text-gray-700"
                       />
                     </div>
 
@@ -418,9 +432,9 @@ export default function Home() {
                       </label>
                       <input
                         type="text"
-                        value={selectedEmployee.division}
-                        readOnly
-                        className="w-full px-4 py-3 border-2 border-indigo-100 rounded-xl bg-indigo-50 text-indigo-900 cursor-not-allowed"
+                        value={editableEmployee.division}
+                        onChange={(e) => setEditableEmployee({ ...editableEmployee, division: e.target.value })}
+                        className="w-full px-4 py-3 border-2 border-indigo-200 rounded-xl bg-white focus:bg-white focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all text-gray-700"
                       />
                     </div>
                   </div>
